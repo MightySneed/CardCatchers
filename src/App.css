@@ -1,0 +1,17 @@
+#Navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: aliceblue;
+
+}
+
+.Navbarlist {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+li {
+    list-style-type: none;
+}
