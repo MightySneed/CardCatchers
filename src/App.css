@@ -1,5 +1,4 @@
 #Navbar {
-    align-content: space-between;
     display: flex;
     flex-direction: row;
     background-color: aliceblue;
@@ -9,8 +8,8 @@
 .Navbarlist {
     display: flex;
     flex-direction: row;
-    align-content: space-between;
     flex-grow: 1;
+    justify-content: space-around;
 }
 
 li {
