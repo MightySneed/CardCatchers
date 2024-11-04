@@ -18,7 +18,7 @@ const App = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
-            <li><input defaultValue={'Search'}></input></li>
+            <li><input placeholder='Search'></input></li>
             <li><Link to="/my-account">My Account</Link></li>
             </ul>
         </div>
