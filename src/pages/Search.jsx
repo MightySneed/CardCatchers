@@ -29,14 +29,12 @@ const Search = () => {
               )}
               <p><strong>Type:</strong> {card.type}</p>
               <p><strong>Description:</strong> {card.desc}</p>
-              <p><strong>Attack:</strong> {card.atk}</p>
-              <p><strong>Defense:</strong> {card.def}</p>
-              <p><strong>Level:</strong> {card.level}</p>
-              <p><strong>Attribute:</strong> {card.attribute}</p>
+              <p><strong>Attack:</strong> {card.atk != null ? card.atk : 'N/A'}</p>
+              <p><strong>Defense:</strong> {card.def != null ? card.def : 'N/A'}</p>
+              <p><strong>Level:</strong> {card.leve != null ? card.level : 'N/A'}</p>
+              <p><strong>Attribute:</strong> {card.attribute != null ? card.attribute : 'N/A'}</p>
               <button>Add to Collection</button>
-            </li>
-
-          ))}
+            </li>))}
         </ul>
         </div>
     )
