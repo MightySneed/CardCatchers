@@ -35,8 +35,14 @@ const App = () => {
         <Route path='/search' element={<Search />}></Route>
         <Route path='/my-account' element={<MyAccount />}></Route>
       </Routes>
-    </div>
 
+      <footer id='footer'>
+        <h4>Contact Us</h4>
+        <h4>About Us</h4>
+        <h4>Terms and Conditions</h4>
+        <h4>Privacy Policy</h4>
+      </footer>
+    </div>
   )
 }
 
