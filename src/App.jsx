@@ -6,9 +6,13 @@ import Login from './pages/Login'
 import Search from './pages/Search'
 import MyAccount from './pages/myAccount'
 import { useState } from 'react'
+import Game from './pages/game'
+import SearchBar from './pages/SearchBar'
+
 
 const App = () => {
   const [count, setCount] = useState(0)
+  
 
   return (
     <div>
@@ -18,13 +22,12 @@ const App = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
-            <li><input placeholder='Search'></input></li>
+            <li><Game/></li>
+            <li><SearchBar/></li>
             <li><Link to="/my-account">My Account</Link></li>
             </ul>
         </div>
-
 {/* Navbar present for now. LI/UL added to tie it to CSS for the time. */}
-
       <Routes>
         <Route path='/' element={<Welcome />}></Route>
         <Route path='/login' element={<Login />}></Route>
