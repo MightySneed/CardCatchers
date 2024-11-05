@@ -22,7 +22,6 @@ const App = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
-            <li><Game/></li>
             <li><SearchBar/></li>
             <li><Link to="/my-account">My Account</Link></li>
             </ul>
