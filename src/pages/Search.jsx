@@ -31,7 +31,7 @@ const Search = () => {
               <p><strong>Description:</strong> {card.desc}</p>
               <p><strong>Attack:</strong> {card.atk != null ? card.atk : 'N/A'}</p>
               <p><strong>Defense:</strong> {card.def != null ? card.def : 'N/A'}</p>
-              <p><strong>Level:</strong> {card.leve != null ? card.level : 'N/A'}</p>
+              <p><strong>Level:</strong> {card.level != null && card.level !== 0 ? card.level : 'N/A'}</p>
               <p><strong>Attribute:</strong> {card.attribute != null ? card.attribute : 'N/A'}</p>
               <button>Add to Collection</button>
             </li>))}
