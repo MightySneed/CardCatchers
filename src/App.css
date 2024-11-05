@@ -1,10 +1,3 @@
-#Navbar {
-    display: flex;
-    flex-direction: row;
-    background-color: aliceblue;
-
-}
-
 .Navbarlist {
     display: flex;
     flex-direction: row;
@@ -22,4 +15,25 @@ footer {
     justify-content: space-around;
     color: white;
     background-color: black;
+}
+
+#Navbar {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: aliceblue;
+}
+
+.registerform {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#root {
+    margin-left: 5px auto;
+    padding: 2rem;
+    text-align:  row;
+    background-color: aliceblue;
+    padding-left: 10px;
 }
