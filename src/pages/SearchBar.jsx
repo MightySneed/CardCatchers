@@ -2,10 +2,12 @@ import { useState } from 'react';
 import axios from 'axios';
 import Game from './game';
 
+
 const SearchBar = () => {
     const [value, setValue] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
+
     const [selectedGame, setSelectedGame] = useState('YGO');
 
     const fetchData = async (searchValue) => {
@@ -32,6 +34,7 @@ const SearchBar = () => {
         } catch (error) {
             console.log(error);
         }
+
     };
 
     const handleKeyDown = (e) => {
@@ -45,6 +48,7 @@ const SearchBar = () => {
     };
 
     return (
+
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
           <div style={{ width: '50%' }}>
             <Game selectedGame={selectedGame} setSelectedGame={setSelectedGame} />
@@ -85,6 +89,7 @@ const SearchBar = () => {
               </div>
             )}
           </div>
+
         </div>
     );
 };

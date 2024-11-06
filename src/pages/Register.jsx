@@ -1,5 +1,6 @@
 import { useState } from "react"
 import register from "../utilities/register"
+import "../App.css"
 
 const Register = () => {
     const submitHandler = async (event) => {
@@ -10,7 +11,7 @@ const Register = () => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="registerform">
             <input onChange={(event)=>setEmail(event.target.value)} placeholder="Email"></input>
             <br />
             <input onChange={(event)=>setUsername(event.target.value)} placeholder="Username"></input>
