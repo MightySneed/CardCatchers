@@ -52,7 +52,7 @@ const SearchBar = () => {
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
           <div style={{ width: '50%' }}>
             <Game selectedGame={selectedGame} setSelectedGame={setSelectedGame} />
-            <input
+            <input className="search-bar-style"
               type="text"
               placeholder="I'm looking for"
               value={value}
@@ -72,9 +72,9 @@ const SearchBar = () => {
           </div>
           <div style={{ width: '50%', marginLeft: '20px' }}>
             {selectedCard && (
-              <div>
+              <div className="card-info-container">
                 <h2>{selectedCard.name}</h2>
-                <img src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
+                <img  className="card-styling"  src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
                 {selectedGame === 'YGO' && (
                   <>
                     <p><strong>Type:</strong> {selectedCard.type}</p>
@@ -85,7 +85,7 @@ const SearchBar = () => {
                     <p><strong>Attribute:</strong> {selectedCard.attribute != null ? selectedCard.attribute : 'N/A'}</p>
                   </>
                 )}
-                <button>Add to Collection</button>
+                <button className="add-to-button">Add to Collection</button>
               </div>
             )}
           </div>

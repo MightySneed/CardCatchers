@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../App.css"
 
 const Search = () => {
     const [cards, setCards] = useState([]);
@@ -25,7 +26,7 @@ const Search = () => {
             <li key={card.id}>
               <h2>{card.name}</h2>
               {card.card_images && card.card_images[0] && (
-                <img src={card.card_images[0].image_url} alt={card.name} width="200" />
+                <img src={card.card_images[0].image_url} alt={card.name} />
               )}
               <p><strong>Type:</strong> {card.type}</p>
               <p><strong>Description:</strong> {card.desc}</p>
@@ -33,7 +34,7 @@ const Search = () => {
               <p><strong>Defense:</strong> {card.def != null ? card.def : 'N/A'}</p>
               <p><strong>Level:</strong> {card.level != null && card.level !== 0 ? card.level : 'N/A'}</p>
               <p><strong>Attribute:</strong> {card.attribute != null ? card.attribute : 'N/A'}</p>
-              <button>Add to Collection</button>
+              <button >Add to Collection</button>
             </li>))}
         </ul>
         </div>
