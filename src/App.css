@@ -25,9 +25,9 @@ footer {
 }
 
 .registerform {
-    display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    padding: 1px;
 }
 
 #root {
@@ -36,4 +36,8 @@ footer {
     text-align:  row;
     background-color: aliceblue;
     padding-left: 10px;
+}
+
+img {
+
 }
