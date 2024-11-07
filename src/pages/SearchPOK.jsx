@@ -11,7 +11,7 @@ const SearchBarPOK = () => {
     const fetchData = async (searchValue) => {
         try {
             let data;
-            if (selectedGame === 'MTG') {
+            if (selectedGame === 'POK') {
   
                 const response = await axios.get(
                   `https://api.scryfall.com/cards/named?fuzzy=${searchValue}`

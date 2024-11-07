@@ -3,21 +3,16 @@ import './App.css'
 import Welcome from './pages/Welcome'
 import Register from './pages/Register'
 import Login from './pages/Login'
-import Search from './pages/SearchYGO'
+import Search from './pages/Search';
 import MyAccount from './pages/myAccount'
-import Game from './pages/game'
-import SearchBar from './pages/SearchBar'
-import SearchBarYGO from './pages/SearchYGO'
-import SearchBarMTG from './pages/SearchMTG'
-import SearchBarPOK from './pages/SearchPOK'
 import MyCollections from './pages/MyCollections'
 import UpdateDetails from './pages/UpdateDetails'
 import TCs from './assets/TermsAndConditions'
+import { useState } from 'react'
 
 
 const App = () => {
-  const [count, setCount] = useState(0)
-  const [GameSelect, setGameSelect] = useState(`YGO`)
+
  
   return (
     <div>
@@ -26,21 +21,17 @@ const App = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
-            <Game setGameSelect={setGameSelect}/>
+            <li><Link to="/search">Search</Link></li>
             <li><Link to="/my-account">My Account</Link></li>
             </ul>
         </div>
-        <div>
-        {(GameSelect === `YGO`) && <><SearchBarYGO/> <p>YGO</p></>}
-        {(GameSelect === `MTG`) && <><SearchBarMTG/> <p>MTG</p></>}
-        {(GameSelect === `POK`) && <><SearchBarPOK/> <p>POK</p></>}
-        </div>
+
 
       <Routes>
         <Route path='/' element={<Welcome />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
-        <Route path='/search' element={<Search />}></Route>
+        <Route path='/search' element={<Search />} />
         <Route path='/my-account' element={<MyAccount />}></Route>
         <Route path='/my-collections' element={<MyCollections />}></Route>
         <Route path='/update-details' element={<UpdateDetails />}></Route>

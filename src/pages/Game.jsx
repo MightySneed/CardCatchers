@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 function Game({ selectedGame, setGameSelect }) {
@@ -9,8 +8,7 @@ function Game({ selectedGame, setGameSelect }) {
                 name="game" 
                 id="game"
                 value={selectedGame}
-                onChange={(event) => {setGameSelect(event.target.value); console.log(event.target.value)}}
-                style={{ marginBottom: '10px' }}
+                onChange={(event) => { setGameSelect(event.target.value); console.log(event.target.value); }}
             >
                 <option value="POK">Pokémon TCG</option>
                 <option value="YGO">Yu-Gi-Oh! TCG</option>
