@@ -10,12 +10,13 @@
     flex-direction: row;
     flex-grow: 1;
     justify-content: space-around;
-}
- 
-li {
     list-style-type: none;
 }
- 
+
+.tcs{
+    list-style-type: disc;
+}
+
 footer {
     position: fixed;
     bottom: 0;
