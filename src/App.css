@@ -1,3 +1,10 @@
+.App {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    color: white;
+    cursor: url(firecursor.jpg), auto;
+}
+ 
 .Navbarlist {
     display: flex;
     flex-direction: row;
@@ -11,30 +18,215 @@
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     color: white;
-    background-color: black;
+    background-color: rgb(20, 20, 20);
+    padding: 10px;
 }
 
+/* .page {
+    background-color: rgb(9, 9, 87);
+    max-height: 100vh;
+    max-width: 100vw;
+}
+  */
 #Navbar {
+    border: pink 1px solid;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    background-color: aliceblue;
+    background-color: rgb(21, 21, 240);
+    color: white;
 }
-
+ 
 .registerform {
-    display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    padding: 1px;
 }
-
+ 
 #root {
     margin-left: 5px auto;
     padding: 2rem;
     text-align:  row;
-    background-color: aliceblue;
+    background-color: rgb(13, 1, 78);
     padding-left: 10px;
+    max-height: 100%;
+    max-width: 100%;
 }
+ 
+.search-bar-style {
+    border-radius: 8px;
+    border-width: 1px;
+}
+ 
+/* login and register form styling */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+    color:black;
+}
+ 
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+    color:black;
+}
+ 
+.register-button {
+    padding: 8px 16px;
+    background-color: rgb(2, 131, 2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.login-button {
+ padding: 8px 16px;
+ background-color: rgb(2, 131, 2);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+ 
+.inputbox-style {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+ 
+/* card search styling */
+.card-styling {
+    width: 350px;
+    height: 450px;
+    display: block;
+    border-radius: 8px;
+ 
+}
+ 
+.selected-card {
+    width: 100px;
+}
+ 
+.nav-text {
+    color: white;
+}
+ 
+.add-to-button {
+    padding: 8px 16px;
+    background-color: rgb(2, 101, 131);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.add-to-button
+ 
+.card-info-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+ 
+/* Main Page styles */
+ 
+.image-float-container img {
+    float: inline-start;
+    margin: 5.2%;
+    width: 32%;
+    height: auto;
+    display: block;
+}
+.image-float-container img{
+    position: relative;
+    display: block;
+}
+ 
+.image-float-container:hover {
+    opacity: 1;
+}
+ 
+.image-float-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+ 
+.text {
+    font-style: italic;
+}
+ 
+.image-containar {
+    position: relative;
+    display: inline-block;
+}
+ 
+ img {
+    transition: filter 0.3s ease;
+    filter: grayscale(100%);
+ }
+
+ img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+ }
+ 
+ .button {
+    cursor: pointer;
+    transition: cursor 0.3s ease;
+ }
+ 
+ element {
+    cursor: url(`fire-cursor.jpg`)
+ }
+
+ .custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none;
+    transition: transform 0.1s;
+ }
+
+ .column {
+    float:left;
+    width: 75%;
+    padding: 1px;
+ }
+ 
+ .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
