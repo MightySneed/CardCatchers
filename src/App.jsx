@@ -35,17 +35,13 @@ const App = () => {
             {(GameSelect === `POK`) && <><SearchBarPOK/> <p>POK</p></>}
             </li> */} 
 
-            <li><Game/></li>
-            <li><SearchBar/></li>
             <li><Link to="/my-account">My Account</Link></li>
             </ul>
         </div>
         <div>
-        <>
         {(GameSelect === `YGO`) && <><SearchBarYGO/> <p>YGO</p></>}
         {(GameSelect === `MTG`) && <><SearchBarMTG/> <p>MTG</p></>}
         {(GameSelect === `POK`) && <><SearchBarPOK/> <p>POK</p></>}
-        </>
         </div>
 {/* Navbar present for now. LI/UL added to tie it to CSS for the time. */}
       <Routes>
