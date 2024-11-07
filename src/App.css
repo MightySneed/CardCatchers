@@ -1,3 +1,9 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    color: white;
+}
+
 .Navbarlist {
     display: flex;
     flex-direction: row;
@@ -19,21 +25,29 @@ footer {
     justify-content: space-around;
     color: white;
     background-color: black;
-    padding: 10px;
+    padding: 1px;
 }
 
 #Navbar {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    background-color: aliceblue;
+    background-color: rgb(21, 21, 240);
+    color: white;
+}
+ 
+
+ .registerform {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1px;
 }
 
 #root {
     margin-left: 5px auto;
     padding: 2rem;
     text-align:  row;
-    background-color: aliceblue;
+    background-color: rgb(13, 1, 78);
     padding-left: 10px;
 }
 
@@ -123,6 +137,8 @@ footer {
     cursor: pointer;
 }
 
+.add-to-button
+
 .card-info-container {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -130,3 +146,77 @@ footer {
     padding-left: 50px;
     padding-bottom: 50px;
 }
+
+/* Main Page styles */
+
+.image-float-container img {
+    float: inline-start;
+    margin: 5px;
+    width: 32%;
+    height: auto;
+    display: block;
+}
+.image-float-container img{
+    position: relative;
+    display: block;
+}
+
+.image-float-container:hover {
+    opacity: 1;
+}
+
+.image-float-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.text {
+    font-style: italic;
+}
+
+.image-containar {
+    position: relative;
+    display: inline-block;
+}
+
+ img {
+    transition: filter 0.3s ease;
+    filter: grayscale(100%);
+ }
+
+ img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+ }
+
+ .button {
+    cursor: pointer;
+    transition: cursor 0.3s ease;
+ }
+
+ /* .button:hover {
+    cursor: url; (`path/to/hover-cursor.png), pointer;
+ } */
+
+ .custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none;
+    transition: transform 0.1s;
+ }
+
+ .column {
+    float:left;
+    width: 100%;
+    padding: 1px;
+ }
+
+ .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

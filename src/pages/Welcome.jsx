@@ -4,16 +4,16 @@ import MTG from '../assets/MTG.jpg'
 
 const Welcome = () => {
     return (
-        <div>
-            <div id='yugioh'>
-                <img src={YGO} alt="Yu-Gi-h! Trading Card Game" />
+        <div class="image-float-container row">
+            <div  class="column" id='yugioh'>
+                <img  src={YGO} alt="Yu-Gi-h! Trading Card Game" />
                 <h2>Yu-Gi-Oh!</h2>
             </div>
-            <div id='pokemon'>
+            <div class="column" id='pokemon'>
                 <img src={Pokemon} alt="Pokemon Trading Card Game" />
                 <h2>Pokemon</h2>
             </div>
-            <div id='magic'>
+            <div class="column" id='magic'>
                 <img src={MTG} alt="Magic the Gathering Trading Card Game" />
                 <h2>Magic the Gathering</h2>
             </div>
