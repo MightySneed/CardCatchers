@@ -13,6 +13,7 @@ import SearchBarPOK from './pages/SearchPOK'
 import MyCollections from './pages/MyCollections'
 import UpdateDetails from './pages/UpdateDetails'
 import TCs from './assets/TermsAndConditions'
+import { useState } from 'react'
 
 
 const App = () => {
