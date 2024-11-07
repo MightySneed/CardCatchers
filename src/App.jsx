@@ -26,6 +26,7 @@ const App = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
+
             <Game setGameSelect={setGameSelect}/>
             {/* <li>
             {(GameSelect === `YGO`) && <><SearchBarYGO/> <p>YGO</p></>}
@@ -33,6 +34,9 @@ const App = () => {
             {(GameSelect === `MTG`) && <><SearchBarMTG/> <p>MTG</p></>}
             {(GameSelect === `POK`) && <><SearchBarPOK/> <p>POK</p></>}
             </li> */} 
+
+            <li><Game/></li>
+            <li><SearchBar/></li>
             <li><Link to="/my-account">My Account</Link></li>
             </ul>
         </div>
@@ -51,8 +55,14 @@ const App = () => {
         <Route path='/search' element={<Search />}></Route>
         <Route path='/my-account' element={<MyAccount />}></Route>
       </Routes>
-    </div>
 
+      <footer id='footer'>
+        <h4>Contact Us</h4>
+        <h4>About Us</h4>
+        <h4>Terms and Conditions</h4>
+        <h4>Privacy Policy</h4>
+      </footer>
+    </div>
   )
 }
 

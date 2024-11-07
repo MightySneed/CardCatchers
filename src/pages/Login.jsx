@@ -1,5 +1,7 @@
 import { useState } from "react"
 import {login} from "../utilities/login"
+import "../App.css"
+
 const Login = ({setIsLoggedIn}) => {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
