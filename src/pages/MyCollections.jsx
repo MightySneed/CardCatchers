@@ -3,7 +3,7 @@ const MyCollections = () => {
         <div>
             <h1>Your Collections</h1>
             <button>New Collection</button>
-            <button>View All Collections</button>
+            <a href="/all-collections"><button>View All Collections</button></a>
 
         </div>
     )

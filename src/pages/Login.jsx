@@ -19,14 +19,15 @@ const Login = ({setIsLoggedIn}) => {
     return (
         <div>
             <hr />
-            <form onSubmit={submitHandler}>
-                <input onChange={(event)=> setEmail(event.target.value)} placeholder="Email" />
+            <form onSubmit={submitHandler} className="login-form">
+                <input className="inputbox-style" onChange={(event)=> setEmail(event.target.value)} placeholder="Email" />
                 <br />
-                <input onChange={(event)=> setUsername(event.target.value)} placeholder="Usernme" />
+                <input className="inputbox-style" onChange={(event)=> setUsername(event.target.value)} placeholder="Username" />
                 <br />
-                <input onChange={(event)=> setPassword(event.target.value)} placeholder="Password" />
+                <input className="inputbox-style" onChange={(event)=> setPassword(event.target.value)} placeholder="Password" />
                 <br />
-                <button type="submit">LOGIN</button>
+                
+                <button className="login-button" type="submit">LOGIN</button>
             </form>
             <hr />
         </div>  

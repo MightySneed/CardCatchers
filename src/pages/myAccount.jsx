@@ -18,14 +18,16 @@ const MyAccount = () => {
             <br />
             <h4>Please beware! All information and collections will be removed from the system.</h4>
             <br />
-            <button type="submit" onClick={deleteAccount}>Yes</button>
+            <button className="yes-bttn" type="submit" onClick={deleteAccount}>Yes</button>
             <br />
-            <button type="submit" onClick={dontDelete}>No</button>
+            <button className="no-bttn" type="submit" onClick={dontDelete}>No</button>
             </div>
             }
-            <a href="/my-collections"><button>My Collections</button></a>
-            <button>Delete Account</button>
-            <a href="/update-details"><button>Update Account Details</button></a>
+            <div className="bttn-container">
+            <a href="/my-collections"><button className="collections-bttn">My Collections</button></a>
+            <button className="del-acc-bttn">Delete Account</button>
+            <a href="/update-details"><button className="update-acc-bttn">Update Account Details</button></a>
+            </div>
         </div>
     )
 }

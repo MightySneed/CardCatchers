@@ -34,15 +34,14 @@ function SearchBarMTG() {
     };
 
     return (
-        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-            <div style={{ width: '50%' }}>
-                <input
+        <div className="search-container">
+            <div className="search-left">
+                <input className="search-bar-style"
                     type="text"
                     placeholder="I'm looking for..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
                 />
                 {loading && (
                     <div>

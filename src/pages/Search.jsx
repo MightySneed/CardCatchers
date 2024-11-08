@@ -13,7 +13,7 @@ function Search() {
             {GameSelect === 'YGO' && <><SearchBarYGO /><p>YGO</p></>}
             {GameSelect === 'MTG' && <><SearchBarMTG /><p>MTG</p></>}
             {GameSelect === 'POK' && <><SearchBarPOK /><p>POK</p></>}
-            {GameSelect === 'Nothing' && <><p>"Select a game you silly billy!"</p></>}
+            {GameSelect === 'Nothing' && <><p>"Select a game to search for cards."</p></>}
         </div>
     );
 }
