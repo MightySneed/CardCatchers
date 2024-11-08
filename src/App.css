@@ -22,6 +22,7 @@ body {
     list-style-type: disc;
 }
  
+ 
 footer {
     position: fixed;
     bottom: 0;
@@ -30,8 +31,9 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    justify-self: flex-end;
     color: white;
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(105, 105, 105);
     padding: 1px;
 }
  
@@ -40,14 +42,16 @@ footer {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(105, 105, 105);
     color: white;
     width: 100%;
     border-radius: 3px;
 }
  
  
+ 
  .registerform {
+ 
     flex-direction: row;
     justify-content: space-around;
     padding: 1px;
@@ -188,6 +192,11 @@ footer {
     display: block;
 }
  
+.mainImg {
+    height: 625px;
+    width: 875px;
+}
+ 
 .image-float-container:hover {
     opacity: 1;
 }
@@ -292,7 +301,92 @@ footer {
     color: rgb(255, 255, 255);
     }
  
-.mainImg {
-    height: 625px;
-    width: 875px;
+.load-more-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 185, 31);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.load-more-bttn:hover {
+    background-color: rgb(0, 150, 25);
+    scale: 1.1;
+}
+ 
+/* My Account styles */
+.collections-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 185, 31);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.collections-bttn:hover {
+    background-color: rgb(0, 150, 25);
+    scale: 1.1;
+}
+ 
+.del-acc-bttn {
+    padding: 8px 16px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.del-acc-bttn:hover {
+    background-color: rgb(214, 0, 0);
+    scale: 1.1;
+}
+ 
+.update-acc-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border: 1px rgb(0, 123, 255);
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.update-acc-bttn:hover {
+    background-color: rgb(0, 102, 204);
+    scale: 1.1;
+}
+ 
+.yes-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 185, 31);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.yes-bttn:hover {
+    background-color: rgb(0, 150, 25);
+    scale: 1.1;
+}
+ 
+.no-bttn {
+    padding: 8px 16px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.no-bttn:hover {
+    background-color: rgb(214, 0, 0);
+    scale: 1.1;
+}
+ 
+.bttn-container {
+    display: flex; 
+    gap: 10px;     
 }

@@ -2,7 +2,7 @@ import '../App.css'
 
 const TCs = () => {
     return (
-        <div>
+        <div className='terms'>
             <h1>TERMS AND CONDITIONS</h1>
             <h5>Last Updated 6th November 2024</h5>
             <br />
