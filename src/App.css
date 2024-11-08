@@ -22,6 +22,7 @@ body {
     list-style-type: disc;
 }
 
+
 footer {
     position: fixed;
     bottom: 0;
@@ -30,6 +31,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    justify-self: flex-end;
     color: white;
     background-color: rgb(105, 105, 105);
     padding: 1px;
@@ -47,7 +49,9 @@ footer {
 }
  
 
+
  .registerform {
+
     flex-direction: row;
     justify-content: space-around;
     padding: 1px;
