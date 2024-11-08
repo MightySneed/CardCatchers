@@ -84,6 +84,7 @@ function SearchBarYGO() {
                     </div>
                 )}
             </div>
+
         </div>
     );
 }
