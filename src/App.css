@@ -192,6 +192,11 @@ footer {
     display: block;
 }
 
+.mainImg {
+    height: 625px;
+    width: 875px;
+}
+
 .image-float-container:hover {
     opacity: 1;
 }
@@ -296,9 +301,18 @@ footer {
     color: rgb(255, 255, 255);
     }
 
-.mainImg {
-    height: 625px;
-    width: 875px;
+.load-more-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 185, 31);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.load-more-bttn:hover {
+    background-color: rgb(0, 150, 25);
+    scale: 1.1;
 }
 
 /* My Account styles */
@@ -373,6 +387,6 @@ footer {
 }
 
 .bttn-container {
-    display: flex;  /* or display: grid */
-    gap: 10px;      /* Adjusts the spacing between buttons */
+    display: flex; 
+    gap: 10px;      
 }
