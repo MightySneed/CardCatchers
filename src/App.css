@@ -8,7 +8,10 @@ body {
     font-family: tahoma;
     color: rgb(20, 20, 20);
 }
-
+ 
+.privacy, .terms {
+    background-color: antiquewhite;
+}
 
 .Navbarlist {
     display: flex;

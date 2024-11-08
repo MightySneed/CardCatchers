@@ -9,6 +9,8 @@ import MyCollections from './pages/MyCollections'
 import UpdateDetails from './pages/UpdateDetails'
 import TCs from './assets/TermsAndConditions'
 import { useState } from 'react'
+import PrivPol from './assets/PrivacyPolicy'
+import ViewAllCollections from './pages/ViewAllCollections'
 
 
 const App = () => {
@@ -36,12 +38,15 @@ const App = () => {
         <Route path='/my-collections' element={<MyCollections />}></Route>
         <Route path='/update-details' element={<UpdateDetails />}></Route>
         <Route path='/terms-and-conditions' element={<TCs />}></Route>
+        <Route path='/privacy-notice' element={<PrivPol />}></Route>
+        <Route path='/all-collections' element={<ViewAllCollections />}></Route>
       </Routes>
+
       <footer id='footer'>
         <h4>Contact Us</h4>
         <h4>About Us</h4>
         <Link to='/terms-and-conditions'>Terms and Conditions</Link>
-        <h4>Privacy Policy</h4>
+        <Link to='/privacy-notice'>Privacy Notice</Link>
       </footer>
     </div>
   )
