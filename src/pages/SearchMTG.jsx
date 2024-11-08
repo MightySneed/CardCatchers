@@ -34,16 +34,16 @@ function SearchBarMTG() {
     };
 
     return (
-        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-            <div style={{ width: '50%' }}>
-                <input
+        <div className="search-container">
+            <div className="search-left">
+                <input className="search-bar-style"
                     type="text"
                     placeholder="I'm looking for..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
                 />
+
                 {loading && (
                     <div>
                         <img src="https://th.bing.com/th/id/R.5df58aa5cd7541b23ca01a1c0b11a90d?rik=URPWbroIhDw71g&pid=ImgRaw&r=0" alt="Loading..." width='50' />

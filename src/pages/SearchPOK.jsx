@@ -79,6 +79,7 @@ function SearchBarPOK() {
                     </div>
                 )}
             </div>
+
         </div>
     );
 }

@@ -1,3 +1,15 @@
+body {
+    font-family: tahoma;
+    text-align: justify;
+    color: rgb(20, 20, 20);
+}
+
+.text-style {
+    font-family: tahoma;
+    color: rgb(20, 20, 20);
+}
+
+
 .Navbarlist {
     display: flex;
     flex-direction: row;
@@ -12,38 +24,355 @@
 
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     justify-self: flex-end;
     color: white;
-    background-color: black;
+    background-color: rgb(105, 105, 105);
+    padding: 1px;
 }
-
+  
 #Navbar {
+    border: rgb(51, 51, 51);
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    background-color: aliceblue;
+    background-color: rgb(105, 105, 105); 
+    color: white;
+    width: 100%;
+    border-radius: 3px;
 }
+ 
 
-#AllParent {
-    display: flex;
-    flex-direction: column;
-    size: 90%;
-    flex-grow: 1;
-}
 
-.registerform {
-    display: flex;
+ .registerform {
+
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    padding: 1px;
+    justify-content: space-around;
+    padding: 1px;
 }
-
+ 
 #root {
     margin-left: 5px auto;
     padding: 2rem;
-    text-align:  row;
-    background-color: aliceblue;
     padding-left: 10px;
+    text-align: row;
+    background-color: rgb(245, 245, 245); 
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.search-bar-style {
+    border-radius: 8px;
+    border-width: 1px;
+}
+
+/* login and register form styling */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(60, 60, 60); 
+    border: 1px solid rgb(60, 60, 60); 
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+    color:white;
+    
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(60, 60, 60); 
+    border: 1px solid rgb(60, 60, 60); 
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+    color:white;
+}
+
+.register-button {
+    padding: 8px 16px;
+    background-color: rgb(0, 123, 255); 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.register-button:hover {
+    background-color: rgb(0, 102, 204);
+    scale: 1.1 ;
+}
+
+.login-button {
+ padding: 8px 16px;
+ background-color: rgb(0, 123, 255);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: rgb(0, 102, 204);
+    scale: 1.1 ;
+}
+
+.inputbox-style {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc; 
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+/* card search styling */
+.card-styling {
+    width: 350px;
+    height: 450px;
+    display: block;
+    border-radius: 8px;
+
+}
+
+.selected-card {
+    width: 100px;
+}
+
+.nav-text {
+    color: rgb(255, 255, 255);
+}
+
+.add-to-button {
+    padding: 8px 16px;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-to-button:hover {
+    background-color: rgb(0, 102, 204);
+    scale: 1.1;
+}
+
+.card-info-container {
+    border-radius: 10px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    color: black;
+}
+
+/* Main Page styles */
+.image-float-container img {
+    float: inline-start;
+    margin: 5px;
+    width: 32%;
+    height: auto;
+    display: block;
+}
+.image-float-container img{
+    position: relative;
+    display: block;
+}
+
+.image-float-container:hover {
+    opacity: 1;
+}
+
+.image-float-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.text {
+    font-style: italic;
+}
+
+.image-containar {
+    position: relative;
+    display: inline-block;
+}
+
+.img-colour {
+    transition: filter 0.3s ease;
+    filter: grayscale(100%);
+ }
+
+.img-colour:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+ }
+
+.button {
+    cursor: pointer;
+    transition: cursor 0.3s ease;
+ }
+
+.custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none;
+    transition: transform 0.1s;
+ }
+
+.column {
+    float:left;
+    width: 100%;
+    padding: 1px;
+ }
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* search result styles */
+.search-container {
+    display: flex;
+    align-items: flex-start;
+    }
+    
+.search-left {
+    width: 50%;
+    }
+    
+.search-right {
+    width: 50%;
+    margin-left: 20px;
+    }
+    
+.search-bar-style {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(240, 240, 240); 
+  border: 1px solid rgb(180, 180, 180); 
+  color: black;
+  font-weight: bold;
+    }
+    
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    }
+    
+.search-result-item {
+    cursor: pointer;
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(70, 70, 70);
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+    font-weight: bold;
+    color: white;
+    }
+    
+.search-result-item p {
+    margin: 0;
+    color: rgb(255, 255, 255);
+    }
+
+.mainImg {
+    height: 625px;
+    width: 875px;
+}
+
+/* My Account styles */
+.collections-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 185, 31);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.collections-bttn:hover {
+    background-color: rgb(0, 150, 25);
+    scale: 1.1;
+}
+
+.del-acc-bttn {
+    padding: 8px 16px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.del-acc-bttn:hover {
+    background-color: rgb(214, 0, 0);
+    scale: 1.1;
+}
+
+.update-acc-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border: 1px rgb(0, 123, 255);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-acc-bttn:hover {
+    background-color: rgb(0, 102, 204);
+    scale: 1.1;
+}
+
+.yes-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 185, 31);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.yes-bttn:hover {
+    background-color: rgb(0, 150, 25);
+    scale: 1.1;
+}
+
+.no-bttn {
+    padding: 8px 16px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.no-bttn:hover {
+    background-color: rgb(214, 0, 0);
+    scale: 1.1;
+}
+
+.bttn-container {
+    display: flex;  /* or display: grid */
+    gap: 10px;      /* Adjusts the spacing between buttons */
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Game from './game';
+import "../app.css"
 
 
 const SearchBar = () => {
@@ -34,6 +35,7 @@ const SearchBar = () => {
         } catch (error) {
             console.log(error);
         }
+        
 
     };
 
@@ -49,10 +51,10 @@ const SearchBar = () => {
 
     return (
 
-        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-          <div style={{ width: '50%' }}>
+      <div className="search-container">
+          <div className="search-left">
             <Game selectedGame={selectedGame} setSelectedGame={setSelectedGame} />
-            <input
+            <input className="search-bar-style"
               type="text"
               placeholder="I'm looking for"
               value={value}
@@ -60,21 +62,24 @@ const SearchBar = () => {
                 setValue(e.target.value);
               }}
               onKeyDown={handleKeyDown}
-              style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
             />
-            <div>
+            <div className="search-results">
               {suggestions.map((item, index) => (
-                <p key={index} onClick={() => handleCardClick(item)} style={{ cursor: 'pointer' }}>
-                  {item.name}
-                </p>
+                <div 
+                  key={index} 
+                  onClick={() => handleCardClick(item)} 
+                  className="search-result-item"
+                >
+                  <p>{item.name}</p>
+                </div>
               ))}
             </div>
           </div>
-          <div style={{ width: '50%', marginLeft: '20px' }}>
+          <div className="search-right">
             {selectedCard && (
-              <div>
+              <div className="card-info-container">
                 <h2>{selectedCard.name}</h2>
-                <img src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
+                <img  className="card-styling"  src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
                 {selectedGame === 'YGO' && (
                   <>
                     <p><strong>Type:</strong> {selectedCard.type}</p>
@@ -85,7 +90,7 @@ const SearchBar = () => {
                     <p><strong>Attribute:</strong> {selectedCard.attribute != null ? selectedCard.attribute : 'N/A'}</p>
                   </>
                 )}
-                <button>Add to Collection</button>
+                <button className="add-to-button">Add to Collection</button>
               </div>
             )}
           </div>
