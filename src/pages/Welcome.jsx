@@ -1,21 +1,22 @@
-import YGO from '../assets/YGO.jpg'
-import Pokemon from '../assets/Pokemon.jpg'
+import YGO2 from '../assets/YGO2.jpg'
+import Pokemo2 from '../assets/Pokemo2.jpg'
 import MTG from '../assets/MTG.jpg'
 
 const Welcome = () => {
     return (
         <div>
-            <div id='yugioh'>
-                <img src={YGO} alt="Yu-Gi-h! Trading Card Game" />
-                <h2>Yu-Gi-Oh!</h2>
+            <div className="img-colour img-size" id='yugioh'>
+                <img src={YGO2} alt="Yu-Gi-h! Trading Card Game" className='mainImg'/>
             </div>
-            <div id='pokemon'>
-                <img src={Pokemon} alt="Pokemon Trading Card Game" />
-                <h2>Pokemon</h2>
+            <br />
+            <br />
+            <div className="img-colour "id='pokemon'>
+                <img src={Pokemo2} alt="Pokemon Trading Card Game" className='mainImg'/>
             </div>
-            <div id='magic'>
-                <img src={MTG} alt="Magic the Gathering Trading Card Game" />
-                <h2>Magic the Gathering</h2>
+            <br />
+            <br />
+            <div className="img-colour "id='magic'>
+                <img src={MTG} alt="Magic the Gathering Trading Card Game" className='mainImg'/>
             </div>
         </div>
     )
