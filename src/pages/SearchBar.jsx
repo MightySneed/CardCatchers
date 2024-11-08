@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Game from './game';
-import "../app.css"
+import "../App.css"
 
 
 const SearchBar = () => {
