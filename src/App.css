@@ -16,6 +16,7 @@ body {
     flex-grow: 1;
     justify-content: space-around;
     list-style-type: none;
+    
 }
 
 .tcs{
@@ -44,12 +45,13 @@ footer {
     flex-direction: row;
     background-color: rgb(105, 105, 105); 
     color: white;
-    width: 100%;
+    width: 95%;
     border-radius: 3px;
+    top: 0;
+    position: fixed;
+    z-index: 1000; 
 }
  
-
-
  .registerform {
 
     flex-direction: row;
@@ -211,19 +213,21 @@ footer {
     font-style: italic;
 }
 
-.image-containar {
-    position: relative;
+.image-container {
     display: inline-block;
+    pointer-events: none;
 }
 
 .img-colour {
-    transition: filter 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
     filter: grayscale(100%);
+    pointer-events: auto;
  }
 
 .img-colour:hover {
-    transform: scale(1.1);
     filter: grayscale(0%);
+    transform: scale(1.1);
+    z-index: 1; 
  }
 
 .button {
