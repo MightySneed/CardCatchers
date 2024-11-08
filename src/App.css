@@ -1,7 +1,7 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: tahoma;
     text-align: justify;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .Navbarlist {
@@ -9,9 +9,6 @@ body {
     flex-direction: row;
     flex-grow: 1;
     justify-content: space-around;
-}
-
-li {
     list-style-type: none;
 }
 
@@ -32,8 +29,9 @@ footer {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    background-color: rgb(21, 21, 240);
+    background-color: rgb(102, 102, 102);
     color: white;
+    width: 100%;
 }
  
 
@@ -46,9 +44,11 @@ footer {
 #root {
     margin-left: 5px auto;
     padding: 2rem;
-    text-align:  row;
-    background-color: rgb(13, 1, 78);
     padding-left: 10px;
+    text-align:  row;
+    background-color: rgb(255, 255, 255);
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .search-bar-style {
@@ -62,13 +62,14 @@ footer {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color:  rgb(102, 102, 102);
+    border: 1px solid  rgb(102, 102, 102);
     border-radius: 8px;
     max-width: 400px;
     width: 100%;
     margin: 20px auto;
     color:black;
+    
 }
 
 .login-form {
@@ -76,8 +77,8 @@ footer {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: rgb(102, 102, 102);
+    border: 1px solid rgb(102, 102, 102);
     border-radius: 8px;
     max-width: 400px;
     width: 100%;
@@ -94,6 +95,11 @@ footer {
     cursor: pointer;
 }
 
+.register-button:hover {
+    background-color: rgb(0, 92, 0);
+    scale: 1.1 ;
+}
+
 .login-button {
  padding: 8px 16px;
  background-color: rgb(2, 131, 2);
@@ -103,12 +109,18 @@ footer {
   cursor: pointer;
 }
 
+.login-button:hover {
+    background-color: rgb(0, 92, 0);
+    scale: 1.1 ;
+}
+
 .inputbox-style {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     border-radius: 4px;
+    background-color: #ffffff;
 }
 
 /* card search styling */
@@ -125,7 +137,7 @@ footer {
 }
 
 .nav-text {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .add-to-button {
@@ -137,14 +149,16 @@ footer {
     cursor: pointer;
 }
 
-.add-to-button
+.add-to-button:hover {
+    background-color: rgb(0, 86, 112);
+    scale: 1.1;
+}
 
 .card-info-container {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
     border-radius: 10px;
     padding-left: 50px;
     padding-bottom: 50px;
+    color: black;
 }
 
 /* Main Page styles */
@@ -180,12 +194,12 @@ footer {
     display: inline-block;
 }
 
- img {
+ .img-colour {
     transition: filter 0.3s ease;
     filter: grayscale(100%);
  }
 
- img:hover {
+ .img-colour:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
  }
@@ -220,3 +234,50 @@ footer {
     clear: both;
     display: table;
   }
+
+  /* search result styles */
+  .search-container {
+    display: flex;
+    align-items: flex-start;
+    }
+    
+    .search-left {
+    width: 50%;
+    }
+    
+    .search-right {
+    width: 50%;
+    margin-left: 20px;
+    }
+    
+    .search-bar-style {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+    font-weight: bold;
+    }
+    
+    .search-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    }
+    
+    .search-result-item {
+    cursor: pointer;
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(102, 102, 102);
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+    font-weight: bold;
+    }
+    
+    .search-result-item p {
+    margin: 0;
+    color: rgb(255, 255, 255);
+    }
