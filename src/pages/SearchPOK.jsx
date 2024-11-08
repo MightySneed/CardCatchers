@@ -36,7 +36,7 @@ const SearchBarPOK = () => {
 
     return (
         <div>
-<h1>Peekaboo</h1>
+<h1 className="text-style">Peekaboo</h1>
         </div>
     );
 };
