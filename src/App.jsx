@@ -15,6 +15,7 @@ import UpdateDetails from './pages/UpdateDetails'
 import TCs from './assets/TermsAndConditions'
 import { useState } from 'react'
 import PrivPol from './assets/PrivacyPolicy'
+import ViewAllCollections from './pages/ViewAllCollections'
 
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
         <Route path='/update-details' element={<UpdateDetails />}></Route>
         <Route path='/terms-and-conditions' element={<TCs />}></Route>
         <Route path='/privacy-notice' element={<PrivPol />}></Route>
+        <Route path='/all-collections' element={<ViewAllCollections />}></Route>
       </Routes>
 
       <footer id='footer'>
