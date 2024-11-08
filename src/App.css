@@ -5,6 +5,10 @@
     cursor: url(firecursor.jpg), auto;
 }
  
+.privacy, .terms {
+    background-color: antiquewhite;
+}
+
 .Navbarlist {
     display: flex;
     flex-direction: row;
