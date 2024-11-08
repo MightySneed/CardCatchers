@@ -11,6 +11,7 @@ import TCs from './assets/TermsAndConditions'
 import { useState } from 'react'
 import PrivPol from './assets/PrivacyPolicy'
 import ViewAllCollections from './pages/ViewAllCollections'
+import CookiePolicy from './assets/CookiePolicy'
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
         <Route path='/terms-and-conditions' element={<TCs />}></Route>
         <Route path='/privacy-notice' element={<PrivPol />}></Route>
         <Route path='/all-collections' element={<ViewAllCollections />}></Route>
+        <Route path='cookie-policy' element={<CookiePolicy />}></Route>
       </Routes>
 
       <footer id='footer'>
@@ -47,6 +49,7 @@ const App = () => {
         <h4>About Us</h4>
         <Link to='/terms-and-conditions'>Terms and Conditions</Link>
         <Link to='/privacy-notice'>Privacy Notice</Link>
+        <Link to='/cookie-policy'>Cookie Policy</Link>
       </footer>
     </div>
   )
