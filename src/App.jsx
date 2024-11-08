@@ -15,7 +15,7 @@ const App = () => {
 
  
   return (
-    <div>
+    <div id="AllParent">
       <div id="Navbar">
           <ul className='Navbarlist'>
             <li><Link to="/">Home</Link></li>

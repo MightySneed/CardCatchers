@@ -10,10 +10,12 @@
     list-style-type: disc;
 }
 
+
 footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    justify-self: flex-end;
     color: white;
     background-color: black;
 }
@@ -23,6 +25,13 @@ footer {
     justify-content: space-around;
     flex-direction: row;
     background-color: aliceblue;
+}
+
+#AllParent {
+    display: flex;
+    flex-direction: column;
+    size: 90%;
+    flex-grow: 1;
 }
 
 .registerform {

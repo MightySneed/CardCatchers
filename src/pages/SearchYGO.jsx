@@ -40,7 +40,7 @@ function SearchBarYGO() {
             <div style={{ width: '50%' }}>
                 <input
                     type="text"
-                    placeholder="Search for YGO cards"
+                    placeholder="I'm looking for..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleKeyDown}
