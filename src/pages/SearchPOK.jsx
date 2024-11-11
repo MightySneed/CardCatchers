@@ -54,9 +54,9 @@ function SearchBarPOK() {
                     <>
                     <div className="search-results">
                     {cards.map(card => (
-                        <p
+                        <p 
                             key={card.id}
-                            className="search-result-item"
+                            className="search-result-item" 
                             onClick={() => setSelectedCard(card)}
                             style={{ cursor: 'pointer' }}
                         >
@@ -81,7 +81,6 @@ function SearchBarPOK() {
                     </div>
                 )}
             </div>
- 
         </div>
     );
 }

@@ -9,14 +9,17 @@ body {
     color: rgb(20, 20, 20);
 }
  
- 
+.privacy, .terms, .cookies {
+    background-color: antiquewhite;
+}
+
 .Navbarlist {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     justify-content: space-around;
     list-style-type: none;
-   
+    
 }
  
 .tcs{
@@ -49,7 +52,7 @@ footer {
     border-radius: 3px;
     top: 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 1000; 
 }
  
  .registerform {
@@ -193,12 +196,12 @@ footer {
     position: relative;
     display: block;
 }
- 
+
 .mainImg {
     height: 625px;
     width: 875px;
 }
- 
+
 .image-float-container:hover {
     opacity: 1;
 }
@@ -212,7 +215,7 @@ footer {
 .text {
     font-style: italic;
 }
- 
+
 .image-container {
     display: inline-block;
     pointer-events: none;
@@ -227,7 +230,7 @@ footer {
 .img-colour:hover {
     filter: grayscale(0%);
     transform: scale(1.1);
-    z-index: 1;
+    z-index: 1; 
  }
  
 .button {
@@ -304,7 +307,7 @@ footer {
     margin: 0;
     color: rgb(255, 255, 255);
     }
- 
+
 .load-more-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 185, 31);
@@ -313,7 +316,7 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
- 
+
 .load-more-bttn:hover {
     background-color: rgb(0, 150, 25);
     scale: 1.1;
@@ -391,6 +394,6 @@ footer {
 }
  
 .bttn-container {
-    display: flex;
+    display: flex; 
     gap: 10px;      
 }

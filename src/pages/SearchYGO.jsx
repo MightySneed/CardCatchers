@@ -55,8 +55,8 @@ function SearchBarYGO() {
                     <>
                        <div className="search-results">
                             {cards.map(card => (
-                                <p
-                                    key={card.id}
+                                <p 
+                                    key={card.id} 
                                     className="search-result-item"
                                     onClick={() => setSelectedCard(card)}
                                     style={{ cursor: 'pointer' }}
@@ -70,7 +70,7 @@ function SearchBarYGO() {
                         </div>
                     </>
                 )}
-               
+                
             </div>
             <div className="search-right">
                 {selectedCard && (
@@ -87,7 +87,6 @@ function SearchBarYGO() {
                     </div>
                 )}
             </div>
- 
         </div>
     );
 }
