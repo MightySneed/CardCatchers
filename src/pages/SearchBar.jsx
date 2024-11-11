@@ -8,7 +8,6 @@ const SearchBar = () => {
     const [value, setValue] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
-
     const [selectedGame, setSelectedGame] = useState('YGO');
 
     const fetchData = async (searchValue) => {
