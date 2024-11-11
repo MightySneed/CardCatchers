@@ -3,7 +3,7 @@ import writeCookie from "./writeCookie";
 export async function login(email,username,password) {
     try {
         const res = await fetch(
-            "http://localhost:5001/login",
+            "https://cardcatchersbackend-production.up.railway.app/login",
             {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},
