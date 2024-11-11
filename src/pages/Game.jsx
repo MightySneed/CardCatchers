@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Game({ selectedGame, setGameSelect }) {
+const Game = ({ selectedGame, setGameSelect }) => {
     return (
         <>
             <label htmlFor="game">Choose the game:</label>

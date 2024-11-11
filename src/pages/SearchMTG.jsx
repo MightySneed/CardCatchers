@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function SearchBarMTG() {
+const SearchBarMTG = () => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
@@ -51,28 +51,31 @@ function SearchBarMTG() {
                 )}
                 {!loading && (
                     <>
+                    <div className="search-results">
                     {cards.map(card => (
                         <p 
-                            key={card.id} 
+                            key={card.id}
+                            className="search-result-item"  
                             onClick={() => setSelectedCard(card)}
                             style={{ cursor: 'pointer' }}
                         >
                             {card.name}
                         </p>
                     ))}
+                    </div>
                 {cards.length > 0 && (
-                    <button onClick={loadMoreResults}>Load More</button>
+                    <button className="load-more-bttn" onClick={loadMoreResults}>Load More</button>
                 )}
             </>
                 )}
             </div>
-            <div style={{ width: '50%', marginLeft: '20px' }}>
+            <div className="search-right">
                 {selectedCard && (
-                    <div>
+                    <div className="card-info-container text-style">
                         <h2>{selectedCard.name}</h2>
-                        <img src={selectedCard.image_uris?.large} alt={selectedCard.name} />
+                        <img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
                         <p>{selectedCard.oracle_text}</p>
-                        <button>Add to Collection</button>
+                        <button className="add-to-button">Add to Collection</button>
                     </div>
                 )}
             </div>

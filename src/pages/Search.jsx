@@ -4,11 +4,13 @@ import SearchBarYGO from './SearchYGO';
 import SearchBarMTG from './SearchMTG';
 import SearchBarPOK from './SearchPOK';
 
-function Search() {
+const Search = () => {
     const [GameSelect, setGameSelect] = useState('Nothing');
 
     return (
         <div>
+            <br />
+            <br />
             <Game setGameSelect={setGameSelect} />
             {GameSelect === 'YGO' && <><SearchBarYGO /><p>YGO</p></>}
             {GameSelect === 'MTG' && <><SearchBarMTG /><p>MTG</p></>}
