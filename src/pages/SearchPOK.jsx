@@ -35,15 +35,14 @@ function SearchBarPOK() {
     };
 
     return (
-        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-            <div style={{ width: '50%' }}>
-                <input
+        <div className="search-container">
+        <div className="search-left">
+          <input className="search-bar-style"
                     type="text"
                     placeholder="I'm looking for..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
                 />
                 {loading && (
                     <div>
@@ -53,9 +52,11 @@ function SearchBarPOK() {
                 )}
                 {!loading && (
                     <>
+                    <div className="search-results">
                     {cards.map(card => (
                         <p 
-                            key={card.id} 
+                            key={card.id}
+                            className="search-result-item" 
                             onClick={() => setSelectedCard(card)}
                             style={{ cursor: 'pointer' }}
                         >
@@ -63,19 +64,20 @@ function SearchBarPOK() {
                         </p>
                     ))}
                 {cards.length > 0 && (
-                    <button onClick={loadMoreResults}>Load More</button>
+                    <button className="load-more-bttn" onClick={loadMoreResults}>Load More</button>
                 )}
+                </div>
             </>
                 )}
             </div>
-            <div style={{ width: '50%', marginLeft: '20px' }}>
+            <div className="search-right">
                 {selectedCard && (
-                    <div>
+                    <div className="card-info-container text-style">
                         <h2>{selectedCard.name}</h2>
                         <img src={selectedCard.images.large} alt={selectedCard.name} />
                         <p>Type: {selectedCard.types?.join(', ')}</p>
                         <p>Set: {selectedCard.set.name}</p>
-                        <button>Add to Collection</button>
+                        <button className="add-to-button">Add to Collection</button>
                     </div>
                 )}
             </div>
