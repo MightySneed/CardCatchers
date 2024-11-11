@@ -1,24 +1,42 @@
-import YGO from '../assets/YGO.jpg'
-import Pokemon from "../assets/Pokemon.jpg"
-import MTG from '../assets/MTG.jpg'
+// Welcome.jsx
+import YGO from '../assets/YGO.jpg';
+import Pokemon from "../assets/Pokemon.jpg";
+import MTG from '../assets/MTG.jpg';
+import { useNavigate } from 'react-router-dom';
 
-const Welcome = () => {
+const Welcome = () => { 
+    const navigate = useNavigate();
+    
+    const ygoClick = () => {
+        navigate('/search', { state: { selectedGame: 'YGO' } });
+        console.log('EXODIA, OBLITERATE!')
+    };
+
+    const pkmnClick = () => {
+        navigate('/search', { state: { selectedGame: 'POK' } });
+        console.log('Pikaaaa-chu')
+    };
+
+    const mtgClick = () => {
+        navigate('/search', { state: { selectedGame: 'MTG' } });
+        console.log('Theres no such thing as magic')
+    };
+
     return (
-        <div class>
-        <div className="img-container" id='yugioh'>
-            <img src={YGO} alt="Yu-Gi-h! Trading Card Game" className='mainImg img-size img-colour'/>
+        <div>
+            <div className="img-container" id='yugioh'>
+                <img src={YGO} alt="Yu-Gi-Oh Trading Card Game" className='mainImg img-size img-colour' onClick={ygoClick} />
+            </div>
+            <br />
+            <div className="img-container" id='pokemon'>
+                <img src={Pokemon} alt="Pokemon Trading Card Game" className='mainImg img-size img-colour' onClick={pkmnClick} />
+            </div>
+            <br />
+            <div className="img-container" id='magic'>
+                <img src={MTG} alt="Magic the Gathering Trading Card Game" className='mainImg img-size img-colour' onClick={mtgClick} />
+            </div>
         </div>
-        <br />
-        <br />
-        <div className="img-container"id='pokemon'>
-            <img src={Pokemon} alt="Pokemon Trading Card Game" className='mainImg img-size img-colour'/>
-        </div>
-        <br />
-        <br />
-        <div className="img-container"id='magic'>
-            <img src={MTG} alt="Magic the Gathering Trading Card Game" className='mainImg img-size img-colour'/>
-        </div>
-    </div>
-    )
-}
-export default Welcome
+    );
+};
+
+export default Welcome;
