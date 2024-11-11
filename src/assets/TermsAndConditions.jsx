@@ -4,7 +4,7 @@ const TCs = () => {
     return (
         <div className='terms'>
             <h1>TERMS AND CONDITIONS</h1>
-            <h5>Last Updated 6th November 2024</h5>
+            <h5>Last Updated 11th November 2024</h5>
             <br />
             <h2>AGREEMENT TO OUR LEGAL TERMS</h2>
             <p>We are TCG Card Catchers('Company', 'We', 'Us', or 'Our'), a company registered in the United Kingdom at 28 Paradise Street, Liverpool, UK, L1 3EU.</p>
@@ -171,7 +171,7 @@ const TCs = () => {
             <h4>28 Paradise St</h4>
             <h4>Liverpool L1 3EU</h4>
             <h4>United Kingdom</h4>
-            <h4>Phone: 0151 236 0070</h4>
+            <h4>Phone: (+44)151 236 0070</h4>
             <h4>Email: admin@tcgcc.co.uk</h4>
         </div>
     )
