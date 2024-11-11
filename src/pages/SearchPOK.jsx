@@ -74,7 +74,7 @@ function SearchBarPOK() {
                 {selectedCard && (
                     <div className="card-info-container text-style">
                         <h2>{selectedCard.name}</h2>
-                        <img src={selectedCard.images.large} alt={selectedCard.name} />
+                        <img className="card-styling" src={selectedCard.images.large} alt={selectedCard.name} />
                         <p>Type: {selectedCard.types?.join(', ')}</p>
                         <p>Set: {selectedCard.set.name}</p>
                         <button className="add-to-button">Add to Collection</button>
