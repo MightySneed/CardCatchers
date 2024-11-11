@@ -1,20 +1,25 @@
-import { useState } from "react"
-import {login} from "../utilities/login"
-import "../App.css"
+import { useState } from "react";
+import { login } from "../utilities/login";
+import "../App.css";
 
-const Login = ({setIsLoggedIn}) => {
-    const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const submitHandler = async (event) => {
-        event.preventDefault()
-        const status = await login(email, username, password)
-        if (status === 200) {
-            setIsLoggedIn(true)
-        } else {
-            setIsLoggedIn(false)
-        }
+const Login = ({ setIsLoggedIn, isLoggedIn }) => {
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    const status = await login(email, username, password);
+    if (status === 200) {
+      await setIsLoggedIn(true);
+      console.log(isLoggedIn);
+      console.log("Login successful.");
+    } else {
+      await setIsLoggedIn(false);
+      console.log("Login failed.");
     }
+  };
+
 
     return (
         <div>

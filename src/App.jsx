@@ -12,10 +12,15 @@ import { useState } from 'react'
 import PrivPol from './assets/PrivacyPolicy'
 import ViewAllCollections from './pages/ViewAllCollections'
 import CookiePolicy from './assets/CookiePolicy'
+import logOutUtil from './utilities/logOutUtil'
 
 
 const App = () => {
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  function logOut() {
+    logOutUtil(isLoggedIn, setIsLoggedIn)
+    console.log("You are now logged out. Your cookie expired.")
+  }
  
   return (
     <div id="AllParent">
@@ -26,13 +31,15 @@ const App = () => {
             <li><Link to="/register">Register</Link></li>
             <li><Link to="/search">Search</Link></li>
             <li><Link to="/my-account">My Account</Link></li>
+            { isLoggedIn && 
+              <li><button onClick={logOut}>Log Out</button></li>}
             </ul>
         </div>
 
 
       <Routes>
         <Route path='/' element={<Welcome />}></Route>
-        <Route path='/login' element={<Login />}></Route>
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/search' element={<Search />} />
         <Route path='/my-account' element={<MyAccount />}></Route>

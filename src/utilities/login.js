@@ -1,9 +1,9 @@
 import writeCookie from "./writeCookie";
 
-export const login = async (email,username,password) => {
+export async function login(email,username,password) {
     try {
         const res = await fetch(
-            "http://localhost:5002/login",
+            "http://localhost:5001/login",
             {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},
@@ -17,8 +17,10 @@ export const login = async (email,username,password) => {
             }
         )
         const data = await res.json();
+        let token = data.token;
         console.log(data.token);
-        writeCookie('jwt_token', data.token, 2)
+        writeCookie("jwt_token", token, 2);
+        return res.status
     } catch (error) {
         console.log(error);
     }
