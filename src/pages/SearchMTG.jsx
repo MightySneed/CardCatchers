@@ -7,6 +7,7 @@ function SearchBarMTG() {
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
+    const [ clicked, setClicked] = useState(false);
 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -25,6 +26,17 @@ function SearchBarMTG() {
             fetchData();
             setPage(1);  // Reset to the first page on new search
         }
+    };
+
+    const handleMouseEnter = (card) => {
+        if (!clicked) {
+            setSelectedCard(card);
+        }
+    };
+
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
+        setClicked(true);
     };
 
     const loadMoreResults = () => {
@@ -56,7 +68,8 @@ function SearchBarMTG() {
                         <p 
                             key={card.id}
                             className="search-result-item"  
-                            onClick={() => setSelectedCard(card)}
+                            onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
+                            onClick={() => handleCardClick(card)} //Locks display to clicked card
                             style={{ cursor: 'pointer' }}
                         >
                             {card.name}
