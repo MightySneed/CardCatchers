@@ -9,6 +9,8 @@ function Search() {
 
     return (
         <div>
+            <br />
+            <br />
             <Game setGameSelect={setGameSelect} />
             {GameSelect === 'YGO' && <><SearchBarYGO /><p>YGO</p></>}
             {GameSelect === 'MTG' && <><SearchBarMTG /><p>MTG</p></>}
