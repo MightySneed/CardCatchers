@@ -10,7 +10,7 @@ const Contact = () => {
                 <p>For account related queries:</p>
                 <p>accounts@tcgcc.co.uk</p>
                 <p>For data protection concerns and/or subject access requests:</p>
-                <p>admin:tcgcc.co.uk</p>
+                <p>admin@tcgcc.co.uk</p>
             </div>
             <div id='post'>
                 <h3>Post:</h3>
