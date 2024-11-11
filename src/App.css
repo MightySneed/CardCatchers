@@ -200,6 +200,7 @@ footer {
 .mainImg {
     height: 625px;
     width: 875px;
+    border-radius: 10px;
 }
 
 .image-float-container:hover {
