@@ -4,7 +4,7 @@ const CookiePolicy = () => {
     return (
         <div className='cookies'>
             <h1>COOKIE POLICY</h1>
-            <h4>Last updated 8th November 2024</h4>
+            <h4>Last updated 11th November 2024</h4>
             <br />
             <p>This Cookie Policy explains how TCG Card Catchers ("Company", "we", "us", and "our") uses cookies and similar technologies to recognize you when you visit our site at http:localhost:5173 ("Website"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
             <p>In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other information.</p>
@@ -62,7 +62,7 @@ const CookiePolicy = () => {
             <h4>Liverpool, L1 3EU</h4>
             <h4>United Kingdom</h4>
             <p>or by telephone:</p>
-            <h4>(+44)151236 0070</h4>
+            <h4>(+44)151 236 0070</h4>
         </div>
     )
 }

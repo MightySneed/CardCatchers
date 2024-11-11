@@ -8,20 +8,21 @@ import MyAccount from './pages/myAccount'
 import MyCollections from './pages/MyCollections'
 import UpdateDetails from './pages/UpdateDetails'
 import TCs from './assets/TermsAndConditions'
-import { useState } from 'react'
 import PrivPol from './assets/PrivacyPolicy'
 import ViewAllCollections from './pages/ViewAllCollections'
 import CookiePolicy from './assets/CookiePolicy'
+import Contact from './pages/Contact'
+import About from './pages/About'
 import logOutUtil from './utilities/logOutUtil'
 
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  function logOut() {
+  const logOut = () => {
     logOutUtil(isLoggedIn, setIsLoggedIn)
     console.log("You are now logged out. Your cookie expired.")
   }
- 
+
   return (
     <div id="AllParent">
       <div id="Navbar">
@@ -36,7 +37,6 @@ const App = () => {
             </ul>
         </div>
 
-
       <Routes>
         <Route path='/' element={<Welcome />}></Route>
         <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>
@@ -49,11 +49,13 @@ const App = () => {
         <Route path='/privacy-notice' element={<PrivPol />}></Route>
         <Route path='/all-collections' element={<ViewAllCollections />}></Route>
         <Route path='cookie-policy' element={<CookiePolicy />}></Route>
+        <Route path='/contact-us' element={<Contact />}></Route>
+        <Route path='/about' element={<About />}></Route>
       </Routes>
 
       <footer id='footer'>
-        <h4>Contact Us</h4>
-        <h4>About Us</h4>
+        <Link to='/contact-us'>Contact Us</Link>
+        <Link to='/about'>About</Link>
         <Link to='/terms-and-conditions'>Terms and Conditions</Link>
         <Link to='/privacy-notice'>Privacy Notice</Link>
         <Link to='/cookie-policy'>Cookie Policy</Link>
