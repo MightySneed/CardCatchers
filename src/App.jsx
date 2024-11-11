@@ -8,17 +8,14 @@ import MyAccount from './pages/myAccount'
 import MyCollections from './pages/MyCollections'
 import UpdateDetails from './pages/UpdateDetails'
 import TCs from './assets/TermsAndConditions'
-import { useState } from 'react'
 import PrivPol from './assets/PrivacyPolicy'
 import ViewAllCollections from './pages/ViewAllCollections'
 import CookiePolicy from './assets/CookiePolicy'
 import Contact from './pages/Contact'
 import About from './pages/About'
 
-
 const App = () => {
 
- 
   return (
     <div id="AllParent">
       <div id="Navbar">
@@ -30,7 +27,6 @@ const App = () => {
             <li><Link to="/my-account">My Account</Link></li>
             </ul>
         </div>
-
 
       <Routes>
         <Route path='/' element={<Welcome />}></Route>
