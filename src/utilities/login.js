@@ -1,6 +1,6 @@
 import writeCookie from "./writeCookie";
 
-export async function login(email,username,password) {
+export const login = async (email,username,password) =>  {
     try {
         const res = await fetch(
             "https://cardcatchersbackend-production.up.railway.app/login",
