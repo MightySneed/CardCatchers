@@ -14,6 +14,7 @@ import CookiePolicy from './assets/CookiePolicy'
 import Contact from './pages/Contact'
 import About from './pages/About'
 import logOutUtil from './utilities/logOutUtil'
+import { useState } from 'react'
 
 
 const App = () => {
