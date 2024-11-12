@@ -1,8 +1,8 @@
 import readCookie from "./readCookie";
 
-export const addToCollectionMTG = async (scryfall_uri, name) =>  {
+export const addToCollectionMTG = async (scryfall_uri, name, game) =>  {
     try {
-        console.log(scryfall_uri, name)
+        console.log(scryfall_uri, name, game)
         const token = readCookie('jwt_token')
         console.log(token)
         const auth = 'Bearer ' + token
