@@ -4,7 +4,7 @@ const readCookie = (key) => {
         let token = document.cookie.match(cookieRegex)[0];
         return token;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return false;
     }
 };

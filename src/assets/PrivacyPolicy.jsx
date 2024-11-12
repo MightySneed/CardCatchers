@@ -4,7 +4,7 @@ const PrivPol = () => {
     return (
         <div className="privacy">
             <h1>PRIVACY NOTICE</h1>
-            <h4>Last updated 7th November 2024</h4>
+            <h4>Last updated 11th November 2024</h4>
             <br />
             <p>This Privacy Notive for TCG Card Catchers ('we'. 'us'. or 'our'), describes how ad why we might access, collect, store, use, and/or share ('process') your personal information when you use our services ('Services').</p>
             <h4>Questions or concerns?</h4>
@@ -103,6 +103,7 @@ const PrivPol = () => {
             <p>We may update this Privacy Notice from time to time. The updated version will be indicated by an updated "Revised" date at the top of this Privacy Notice. If we make material changes to this Privacy Notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this Privacy Notce frequently to be informed of how we are protecting your information.</p>
             <h2>12. HOW CAN YOU CANTACT US ABOUT THIS NOTICE?</h2>
             <p>If you have questions or comments about this notice, you may contact us by post at:</p>
+            <h4>TCG Card Catchers</h4>
             <h4>28 Paradise St</h4>
             <h4>Liverpool</h4>
             <h4>United Kingdom</h4>

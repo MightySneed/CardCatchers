@@ -17,12 +17,15 @@ const UpdateDetails = () => {
 
     return (
         <div>
+            <br />
+            <br />
             {isClicked && <div>
             <input type="text" placeholder="Update"/>
             <br />
             <button type="submit" onClick={submit}>Submit</button>
             </div>
             }
+            <br />
             <button onClick={updateEmail}>Update Email</button>
             <button onClick={updateUsername}>Update Username</button>
             <button onClick={updatePassword}>Update Password</button>
