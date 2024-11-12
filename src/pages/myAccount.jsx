@@ -13,6 +13,8 @@ const MyAccount = () => {
 
     return (
         <div>
+            <br />
+            <br />
             {isClicked && <div>
             <h3>Are you sure you wish to delete your account?</h3>
             <br />

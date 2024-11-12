@@ -25,8 +25,7 @@ body {
 .tcs{
     list-style-type: disc;
 }
- 
- 
+
 footer {
     position: fixed;
     bottom: 0;
@@ -54,16 +53,7 @@ footer {
     position: fixed;
     z-index: 1000; 
 }
- 
- .registerform {
- 
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 1px;
-    justify-content: space-around;
-    padding: 1px;
-}
- 
+
 #root {
     margin-left: 5px auto;
     padding: 2rem;
@@ -80,7 +70,7 @@ footer {
 }
  
 /* login and register form styling */
-.register-form {
+.register-form, .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,22 +84,8 @@ footer {
     color:white;
    
 }
- 
-.login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: rgb(60, 60, 60);
-    border: 1px solid rgb(60, 60, 60);
-    border-radius: 8px;
-    max-width: 400px;
-    width: 100%;
-    margin: 20px auto;
-    color:white;
-}
- 
-.register-button {
+
+.register-button, .login-button, .add-to-button {
     padding: 8px 16px;
     background-color: rgb(0, 123, 255);
     color: white;
@@ -117,22 +93,8 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
- 
-.register-button:hover {
-    background-color: rgb(0, 102, 204);
-    scale: 1.1 ;
-}
- 
-.login-button {
- padding: 8px 16px;
- background-color: rgb(0, 123, 255);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
- 
-.login-button:hover {
+
+.register-button:hover, .login-button:hover, .add-to-button:hover {
     background-color: rgb(0, 102, 204);
     scale: 1.1 ;
 }
@@ -152,7 +114,6 @@ footer {
     height: 450px;
     display: block;
     border-radius: 8px;
- 
 }
  
 .selected-card {
@@ -162,21 +123,7 @@ footer {
 .nav-text {
     color: rgb(255, 255, 255);
 }
- 
-.add-to-button {
-    padding: 8px 16px;
-    background-color: rgb(0, 123, 255);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
- 
-.add-to-button:hover {
-    background-color: rgb(0, 102, 204);
-    scale: 1.1;
-}
- 
+
 .card-info-container {
     border-radius: 10px;
     padding-left: 50px;

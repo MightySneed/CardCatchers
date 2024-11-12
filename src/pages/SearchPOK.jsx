@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
- 
-function SearchBarPOK() {
+
+const SearchBarPOK = () => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);

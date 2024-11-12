@@ -1,15 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Game from './game';
-import "../App.css"
-
+import "../App.css";
+import { useLocation } from 'react-router-dom';
 
 const SearchBar = () => {
+    const location = useLocation();
+
+    // Log the location to ensure the state is being passed correctly
+    console.log('Location State:', location.state);
+    
+    // Get selectedGame from location.state or default to 'YGO'
+    const selectedGameFromState = location.state?.selectedGame || 'YGO';
+
+    const [selectedGame, setSelectedGame] = useState(selectedGameFromState);
     const [value, setValue] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
 
-    const [selectedGame, setSelectedGame] = useState('YGO');
+    useEffect(() => {
+        // Sync selectedGame with the location state when it changes
+        if (location.state?.selectedGame) {
+            setSelectedGame(location.state.selectedGame);
+        }
+    }, [location.state]);
 
     const fetchData = async (searchValue) => {
         try {
@@ -19,24 +32,23 @@ const SearchBar = () => {
                   `https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${searchValue}`
                 );
                 data = response.data;
-            } else if (selectedGame ==='MTG') {
+            } else if (selectedGame === 'MTG') {
                 const response = await axios.get(
                     `https://api.scryfall.com/cards/named?fuzzy=${searchValue}`
                   );
-                  data= response.data;
-            } else if (selectedGame ==='POK') {
+                  data = response.data;
+            } else if (selectedGame === 'POK') {
                 const response = await axios.get(
                     `https://api.pokemontcg.io/v2/cards/qname:${searchValue}`
                   );
                   data = response.data;
             } else {
-                data=[];}
+                data = [];
+            }
             setSuggestions(data.data);
         } catch (error) {
             console.log(error);
         }
-        
-
     };
 
     const handleKeyDown = (e) => {
@@ -50,19 +62,30 @@ const SearchBar = () => {
     };
 
     return (
-
       <div className="search-container">
           <div className="search-left">
-            <Game selectedGame={selectedGame} setSelectedGame={setSelectedGame} />
-            <input className="search-bar-style"
-              type="text"
-              placeholder="I'm looking for"
-              value={value}
-              onChange={(e) => {
-                setValue(e.target.value);
-              }}
-              onKeyDown={handleKeyDown}
+            {/* Dropdown for game selection */}
+            <select 
+                value={selectedGame} 
+                onChange={(e) => setSelectedGame(e.target.value)} 
+                className="game-dropdown"
+            >
+                <option value="YGO">Yu-Gi-Oh</option>
+                <option value="MTG">Magic the Gathering</option>
+                <option value="POK">Pokemon</option>
+            </select>
+
+            {/* Search Bar */}
+            <input 
+                className="search-bar-style"
+                type="text"
+                placeholder="I'm looking for"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
+
+            {/* Search Results */}
             <div className="search-results">
               {suggestions.map((item, index) => (
                 <div 
@@ -75,11 +98,13 @@ const SearchBar = () => {
               ))}
             </div>
           </div>
+
+          {/* Card Info Display */}
           <div className="search-right">
             {selectedCard && (
               <div className="card-info-container">
                 <h2>{selectedCard.name}</h2>
-                <img  className="card-styling"  src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
+                <img className="card-styling" src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
                 {selectedGame === 'YGO' && (
                   <>
                     <p><strong>Type:</strong> {selectedCard.type}</p>
@@ -94,8 +119,7 @@ const SearchBar = () => {
               </div>
             )}
           </div>
-
-        </div>
+      </div>
     );
 };
 
