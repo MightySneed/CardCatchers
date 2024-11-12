@@ -1,8 +1,8 @@
 import readCookie from "./readCookie";
-
 export const addToCollectionYGO = async (url, name, game) =>  {
     try {
         console.log(url, name, game)
+
         const token = readCookie('jwt_token')
         console.log(token)
         const auth = 'Bearer ' + token
