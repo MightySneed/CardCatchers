@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { addToCollectionYGO } from '../utilities/addCollectionYGO';
 
 const SearchBarYGO = () => {
     const [cards, setCards] = useState([]);
@@ -35,6 +36,10 @@ const SearchBarYGO = () => {
         fetchData(nextPage);
     };
 
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionYGO(selectedCard.ygoprodeck_url, selectedCard.name)
+      }
     return (
       <div className="search-container">
       <div className="search-left">
@@ -84,7 +89,7 @@ const SearchBarYGO = () => {
                         <p><strong>Defense:</strong> {selectedCard.def != null ? selectedCard.def : 'N/A'}</p>
                         <p><strong>Level:</strong> {selectedCard.level != null && selectedCard.level !== 0 ? selectedCard.level : 'N/A'}</p>
                         <p><strong>Attribute:</strong> {selectedCard.attribute != null ? selectedCard.attribute : 'N/A'}</p>
-                        <button className="add-to-button">Add to Collection</button>
+                        <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
                     </div>
                 )}
             </div>
