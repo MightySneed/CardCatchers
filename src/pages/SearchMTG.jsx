@@ -68,8 +68,9 @@ const SearchBarMTG = () => {
                         <p 
                             key={card.id}
                             className="search-result-item"  
-                            onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
-                            onClick={() => handleCardClick(card)} //Locks display to clicked card
+                             //Locks display to clicked card
+                             onClick={() => {handleCardClick(card), console.log(selectedCard)}}
+                             onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
                             style={{ cursor: 'pointer' }}
                         >
                             {card.name}

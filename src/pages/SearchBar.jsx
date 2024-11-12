@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../App.css";
 import { useLocation } from 'react-router-dom';
+import { addToCollectionYGO } from '../utilities/addCollectionYGO';
 
 const SearchBar = () => {
     const location = useLocation();
@@ -113,9 +114,13 @@ const SearchBar = () => {
                     <p><strong>Defense:</strong> {selectedCard.def != null ? selectedCard.def : 'N/A'}</p>
                     <p><strong>Level:</strong> {selectedCard.level != null && selectedCard.level !== 0 ? selectedCard.level : 'N/A'}</p>
                     <p><strong>Attribute:</strong> {selectedCard.attribute != null ? selectedCard.attribute : 'N/A'}</p>
+                    {/* <p><strong>URL:</strong>{selectedCard.url}</p> */}
+
                   </>
                 )}
-                <button className="add-to-button">Add to Collection</button>
+                    
+                    <button className="add-to-button" onClick={()=>console.log('button clicked')}>Add to  New Collection test</button>
+                    
               </div>
             )}
           </div>
