@@ -1,4 +1,3 @@
-// Welcome.jsx
 import YGO from '../assets/YGO.jpg';
 import Pokemon from "../assets/Pokemon.jpg";
 import MTG from '../assets/MTG.jpg';

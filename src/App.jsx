@@ -1,4 +1,5 @@
 import { Route, Routes, Link } from 'react-router-dom'
+import { useState } from 'react'
 import './App.css'
 import Welcome from './pages/Welcome'
 import Register from './pages/Register'
@@ -14,7 +15,6 @@ import CookiePolicy from './assets/CookiePolicy'
 import Contact from './pages/Contact'
 import About from './pages/About'
 import logOutUtil from './utilities/logOutUtil'
-import { useState } from 'react'
 
 
 const App = () => {

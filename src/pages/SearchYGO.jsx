@@ -8,6 +8,7 @@ const SearchBarYGO = () => {
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
+    const [ clicked, setClicked] = useState(false);
 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -29,6 +30,18 @@ const SearchBarYGO = () => {
             setPage(1);  // Reset to the first page on new search
         }
     };
+
+    const handleMouseEnter = (card) => {
+        if (!clicked) {
+            setSelectedCard(card);
+        }
+    };
+
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
+        setClicked(true);
+    };
+
 
     const loadMoreResults = () => {
         const nextPage = page + 1;
@@ -63,8 +76,9 @@ const SearchBarYGO = () => {
                                 <p 
                                     key={card.id} 
                                     className="search-result-item"
-                                    onClick={() => {setSelectedCard(card), console.log(selectedCard)}
-                                    }
+                                    //Locks display to clicked card
+                                    onClick={() => {handleCardClick(card), console.log(selectedCard)}}
+                                    onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
                                     style={{ cursor: 'pointer' }}
                                 >
                                     {card.name}
