@@ -89,6 +89,7 @@ footer {
     padding: 8px 16px;
     background-color: rgb(0, 123, 255);
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -130,7 +131,15 @@ footer {
     padding-bottom: 50px;
     color: black;
 }
+<<<<<<< HEAD
  
+=======
+
+.drop-down-styles {
+    border-radius: 5px;
+}
+
+>>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
 /* Main Page styles */
 .image-float-container img {
     float: inline-start;
@@ -147,6 +156,7 @@ footer {
 .mainImg {
     height: 625px;
     width: 875px;
+    border-radius: 10px;
 }
 
 .image-float-container:hover {
@@ -259,6 +269,7 @@ footer {
     padding: 8px 16px;
     background-color: rgb(0, 185, 31);
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -268,12 +279,18 @@ footer {
     background-color: rgb(0, 150, 25);
     scale: 1.1;
 }
+<<<<<<< HEAD
  
+=======
+
+
+>>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
 /* My Account styles */
 .collections-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 185, 31);
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -288,6 +305,7 @@ footer {
     padding: 8px 16px;
     background-color: rgb(255, 0, 0);
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -302,6 +320,7 @@ footer {
     padding: 8px 16px;
     background-color: rgb(0, 123, 255);
     color: white;
+    font-weight: bold;
     border: 1px rgb(0, 123, 255);
     border-radius: 4px;
     cursor: pointer;
@@ -316,6 +335,7 @@ footer {
     padding: 8px 16px;
     background-color: rgb(0, 185, 31);
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -330,6 +350,7 @@ footer {
     padding: 8px 16px;
     background-color: rgb(255, 0, 0);
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -343,4 +364,64 @@ footer {
 .bttn-container {
     display: flex; 
     gap: 10px;      
+}
+
+.new-collection-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    font-weight: bold;
+    border: 1px rgb(0, 123, 255);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.new-collection-bttn:hover {
+    background-color: rgb(0, 102, 204);
+    scale: 1.1;
+}
+
+.view-collections-bttn, .updt-email-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 225, 255);
+    color: black;
+    font-weight: bold;
+    border: 1px rgb(0, 225, 255);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-collections-bttn:hover, .updt-email-bttn:hover {
+    background-color: rgb(0, 194, 194);
+    scale: 1.1;
+}
+
+.updt-user-bttn {
+    padding: 8px 16px;
+    background-color: rgb(76, 0, 255);
+    color: white;
+    font-weight: bold;
+    border: 1px rgb(76, 0, 255);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.updt-user-bttn:hover {
+    background-color: rgb(47, 0, 156);
+    scale: 1.1;
+}
+
+.updt-pass-bttn {
+    padding: 8px 16px;
+    background-color: rgb(0, 255, 128);
+    color: black;
+    font-weight: bold;
+    border: 1px rgb(0, 255, 128);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.updt-pass-bttn:hover {
+    background-color: rgb(0, 156, 78);
+    scale: 1.1;
 }

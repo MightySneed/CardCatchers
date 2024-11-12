@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { addToCollectionYGO } from '../utilities/addCollectionYGO';
 
 const SearchBarYGO = () => {
     const [cards, setCards] = useState([]);
@@ -7,7 +8,12 @@ const SearchBarYGO = () => {
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
+<<<<<<< HEAD
  
+=======
+    const [ clicked, setClicked] = useState(false);
+
+>>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
@@ -28,13 +34,37 @@ const SearchBarYGO = () => {
             setPage(1);  // Reset to the first page on new search
         }
     };
+<<<<<<< HEAD
  
+=======
+
+    const handleMouseEnter = (card) => {
+        if (!clicked) {
+            setSelectedCard(card);
+        }
+    };
+
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
+        setClicked(true);
+    };
+
+
+>>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
+<<<<<<< HEAD
  
+=======
+
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionYGO(selectedCard.ygoprodeck_url, selectedCard.name)
+      }
+>>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     return (
       <div className="search-container">
       <div className="search-left">
@@ -58,7 +88,9 @@ const SearchBarYGO = () => {
                                 <p 
                                     key={card.id} 
                                     className="search-result-item"
-                                    onClick={() => setSelectedCard(card)}
+                                    //Locks display to clicked card
+                                    onClick={() => {handleCardClick(card), console.log(selectedCard)}}
+                                    onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
                                     style={{ cursor: 'pointer' }}
                                 >
                                     {card.name}
@@ -83,7 +115,7 @@ const SearchBarYGO = () => {
                         <p><strong>Defense:</strong> {selectedCard.def != null ? selectedCard.def : 'N/A'}</p>
                         <p><strong>Level:</strong> {selectedCard.level != null && selectedCard.level !== 0 ? selectedCard.level : 'N/A'}</p>
                         <p><strong>Attribute:</strong> {selectedCard.attribute != null ? selectedCard.attribute : 'N/A'}</p>
-                        <button className="add-to-button">Add to Collection</button>
+                        <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
                     </div>
                 )}
             </div>

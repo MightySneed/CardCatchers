@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { addToCollectionMTG } from '../utilities/addCollectionMTG';
 
 const SearchBarMTG = () => {
     const [cards, setCards] = useState([]);
@@ -32,7 +33,17 @@ const SearchBarMTG = () => {
         setPage(nextPage);
         fetchData(nextPage);
     };
+<<<<<<< HEAD
  
+=======
+
+    
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionMTG(selectedCard.scryfall_uri, selectedCard.name)
+      }
+
+>>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     return (
         <div className="search-container">
             <div className="search-left">
@@ -56,7 +67,7 @@ const SearchBarMTG = () => {
                         <p 
                             key={card.id}
                             className="search-result-item"  
-                            onClick={() => setSelectedCard(card)}
+                            onClick={() => {setSelectedCard(card), console.log(selectedCard)}}
                             style={{ cursor: 'pointer' }}
                         >
                             {card.name}
@@ -75,7 +86,7 @@ const SearchBarMTG = () => {
                         <h2>{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
                         <p>{selectedCard.oracle_text}</p>
-                        <button className="add-to-button">Add to Collection</button>
+                        <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
                     </div>
                 )}
             </div>
