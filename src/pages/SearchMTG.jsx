@@ -56,7 +56,7 @@ const SearchBarMTG = () => {
                         <p 
                             key={card.id}
                             className="search-result-item"  
-                            onClick={() => setSelectedCard(card)}
+                            onClick={() => {setSelectedCard(card), console.log(selectedCard)}}
                             style={{ cursor: 'pointer' }}
                         >
                             {card.name}
