@@ -8,12 +8,7 @@ const SearchBarPOK = () => {
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
-<<<<<<< HEAD
  
-=======
-    const [ clicked, setClicked] = useState(false);
-
->>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
@@ -33,9 +28,6 @@ const SearchBarPOK = () => {
             setPage(1);  // Reset to the first page on new search
         }
     };
-<<<<<<< HEAD
- 
-=======
 
     const handleMouseEnter = (card) => {
         if (!clicked) {
@@ -48,20 +40,12 @@ const SearchBarPOK = () => {
         setClicked(true);
     };
 
->>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
-<<<<<<< HEAD
  
-=======
-    const handleATBClick = () =>{
-        console.log('button added')
-        addToCollectionPOK(selectedCard.id, selectedCard.name)
-      }
->>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     return (
         <div className="search-container">
         <div className="search-left">

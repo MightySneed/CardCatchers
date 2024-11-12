@@ -33,17 +33,7 @@ const SearchBarMTG = () => {
         setPage(nextPage);
         fetchData(nextPage);
     };
-<<<<<<< HEAD
  
-=======
-
-    
-    const handleATBClick = () =>{
-        console.log('button added')
-        addToCollectionMTG(selectedCard.scryfall_uri, selectedCard.name)
-      }
-
->>>>>>> 37f9cb08d5da32907d6748e32d7c438911d726fb
     return (
         <div className="search-container">
             <div className="search-left">
