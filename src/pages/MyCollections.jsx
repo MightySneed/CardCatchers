@@ -4,8 +4,8 @@ const MyCollections = () => {
             <br />
             <br />
             <h1>Your Collections</h1>
-            <button>New Collection</button>
-            <a href="/all-collections"><button>View All Collections</button></a>
+            <button className="new-collection-bttn">New Collection</button>
+            <a href="/all-collections"><button className="view-collections-bttn">View All Collections</button></a>
 
         </div>
     )
