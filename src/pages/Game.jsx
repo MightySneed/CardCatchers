@@ -4,7 +4,8 @@ const Game = ({ selectedGame, setGameSelect }) => {
     return (
         <>
             <label htmlFor="game">Choose the game:</label>
-            <select 
+            <select
+                className='drop-down-styles' 
                 name="game" 
                 id="game"
                 value={selectedGame}

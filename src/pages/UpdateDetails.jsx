@@ -22,13 +22,13 @@ const UpdateDetails = () => {
             {isClicked && <div>
             <input type="text" placeholder="Update"/>
             <br />
-            <button type="submit" onClick={submit}>Submit</button>
+            <button className="load-more-bttn" type="submit" onClick={submit}>Submit</button>
             </div>
             }
             <br />
-            <button onClick={updateEmail}>Update Email</button>
-            <button onClick={updateUsername}>Update Username</button>
-            <button onClick={updatePassword}>Update Password</button>
+            <button className="updt-email-bttn" onClick={updateEmail}>Update Email</button>
+            <button className="updt-user-bttn" onClick={updateUsername}>Update Username</button>
+            <button className="updt-pass-bttn" onClick={updatePassword}>Update Password</button>
         </div>
     )
 }

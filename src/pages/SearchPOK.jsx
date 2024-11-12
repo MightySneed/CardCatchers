@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { addToCollectionPOK } from '../utilities/addCollectionPOK';
 
 const SearchBarPOK = () => {
     const [cards, setCards] = useState([]);
@@ -7,6 +8,7 @@ const SearchBarPOK = () => {
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
+    const [ clicked, setClicked] = useState(false);
 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -28,12 +30,26 @@ const SearchBarPOK = () => {
         }
     };
 
+    const handleMouseEnter = (card) => {
+        if (!clicked) {
+            setSelectedCard(card);
+        }
+    };
+
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
+        setClicked(true);
+    };
+
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
-
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionPOK(selectedCard.id, selectedCard.name)
+      }
     return (
         <div className="search-container">
         <div className="search-left">
@@ -57,7 +73,9 @@ const SearchBarPOK = () => {
                         <p 
                             key={card.id}
                             className="search-result-item" 
-                            onClick={() => {setSelectedCard(card), console.log(selectedCard)}}
+                            //Locks display to clicked card
+                            onClick={() => {handleCardClick(card), console.log(selectedCard)}}
+                            onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
                             style={{ cursor: 'pointer' }}
                         >
                             {card.name}
@@ -74,10 +92,10 @@ const SearchBarPOK = () => {
                 {selectedCard && (
                     <div className="card-info-container text-style">
                         <h2>{selectedCard.name}</h2>
-                        <img src={selectedCard.images.large} alt={selectedCard.name} />
+                        <img className="card-styling" src={selectedCard.images.large} alt={selectedCard.name} />
                         <p>Type: {selectedCard.types?.join(', ')}</p>
                         <p>Set: {selectedCard.set.name}</p>
-                        <button className="add-to-button">Add to Collection</button>
+                        <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
                     </div>
                 )}
             </div>
