@@ -1,5 +1,5 @@
 import { Route, Routes, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Welcome from './pages/Welcome'
 import Register from './pages/Register'
@@ -15,6 +15,7 @@ import CookiePolicy from './assets/CookiePolicy'
 import Contact from './pages/Contact'
 import About from './pages/About'
 import logOutUtil from './utilities/logOutUtil'
+import readCookie from './utilities/readCookie'
 
 
 const App = () => {
@@ -23,7 +24,14 @@ const App = () => {
     logOutUtil(isLoggedIn, setIsLoggedIn)
     console.log("You are now logged out. Your cookie expired.")
   }
-
+useEffect (() => {
+  const output = readCookie("jwt_token")
+  console.log(output); 
+  if (output !== '') {
+    setIsLoggedIn(true);
+  } else {
+    setIsLoggedIn(false)}
+}, [])
   return (
     <div id="AllParent">
       <div id="Navbar">
@@ -43,7 +51,7 @@ const App = () => {
         <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/search' element={<Search />} />
-        <Route path='/my-account' element={<MyAccount />}></Route>
+        <Route path='/my-account' element={<MyAccount isLoggedIn={isLoggedIn} />}></Route>
         <Route path='/my-collections' element={<MyCollections />}></Route>
         <Route path='/update-details' element={<UpdateDetails />}></Route>
         <Route path='/terms-and-conditions' element={<TCs />}></Route>
