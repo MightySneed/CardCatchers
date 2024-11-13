@@ -1,5 +1,5 @@
 import { Route, Routes, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Welcome from './pages/Welcome'
 import Register from './pages/Register'
@@ -15,35 +15,50 @@ import CookiePolicy from './assets/CookiePolicy'
 import Contact from './pages/Contact'
 import About from './pages/About'
 import logOutUtil from './utilities/logOutUtil'
+import readCookie from './utilities/readCookie'
 
 
 const App = () => {
+  const [username, setUsername] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const logOut = () => {
     logOutUtil(isLoggedIn, setIsLoggedIn)
     console.log("You are now logged out. Your cookie expired.")
   }
-
+useEffect (() => {
+  const output = readCookie("jwt_token")
+  console.log(output); 
+  if (output !== '') {
+    setIsLoggedIn(true);
+  } else {
+    setIsLoggedIn(false)}
+}, [])
   return (
     <div id="AllParent">
       <div id="Navbar">
           <ul className='Navbarlist'>
             <li><Link to="/">Home</Link></li>
+            { !isLoggedIn &&
+            <>
             <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Register</Link></li>
+            <li><Link to="/register">Register</Link></li> 
+            </>}
             <li><Link to="/search">Search</Link></li>
-            <li><Link to="/my-account">My Account</Link></li>
             { isLoggedIn && 
-              <li><button onClick={logOut}>Log Out</button></li>}
+            <>
+              <li>Welcome {username}!</li>
+              <li><Link to="/my-account">My Account</Link></li>
+              <li><button onClick={logOut}>Log Out</button></li>
+              </>}
             </ul>
         </div>
 
       <Routes>
         <Route path='/' element={<Welcome />}></Route>
-        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>
-        <Route path='/register' element={<Register />}></Route>
-        <Route path='/search' element={<Search />} />
-        <Route path='/my-account' element={<MyAccount />}></Route>
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} username={username} setUsername={setUsername} />}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/search' element={<Search username={username} setUsername={setUsername} />} />
+        <Route path='/my-account' element={<MyAccount isLoggedIn={isLoggedIn} />}></Route>
         <Route path='/my-collections' element={<MyCollections />}></Route>
         <Route path='/update-details' element={<UpdateDetails />}></Route>
         <Route path='/terms-and-conditions' element={<TCs />}></Route>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { addToCollectionMTG } from '../utilities/addCollectionMTG';
 
-const SearchBarMTG = () => {
+const SearchBarMTG = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
-    const [ clicked, setClicked] = useState(false);
 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -28,22 +28,17 @@ const SearchBarMTG = () => {
         }
     };
 
-    const handleMouseEnter = (card) => {
-        if (!clicked) {
-            setSelectedCard(card);
-        }
-    };
-
-    const handleCardClick = (card) => {
-        setSelectedCard(card);
-        setClicked(true);
-    };
-
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
+
+    
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionMTG(username, selectedCard.scryfall_uri, selectedCard.name)
+      }
 
     return (
         <div className="search-container MTG-bkgrnd">

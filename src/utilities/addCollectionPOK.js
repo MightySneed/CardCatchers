@@ -1,10 +1,9 @@
 import readCookie from "./readCookie";
 
-export const addToCollectionYGO = async (username, url, name, game) =>  {
-
+export const addToCollectionPOK = async (username ,id, name, game) =>  {
     try {
-        console.log(url, name, game)
-
+        const uri = "https://api.pokemontcg.io/v2/cards/" + id
+        console.log(uri, name, game)
         const token = readCookie('jwt_token')
         console.log(token)
         const auth = 'Bearer ' + token
@@ -17,9 +16,9 @@ export const addToCollectionYGO = async (username, url, name, game) =>  {
                 },
                 body: JSON.stringify(
                     {
-                        url: url,
+                        url: uri,
                         name: name,
-                        game: "YGO",
+                        game: "POK",
                         username: username
                     }
                 )

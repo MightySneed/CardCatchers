@@ -3,7 +3,7 @@ import axios from 'axios';
 import { addToCollectionYGO } from '../utilities/addCollectionYGO';
 import "../App.css"
 
-const SearchBarYGO = () => {
+const SearchBarYGO = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
@@ -52,7 +52,7 @@ const SearchBarYGO = () => {
 
     const handleATBClick = () =>{
         console.log('button added')
-        addToCollectionYGO(selectedCard.ygoprodeck_url, selectedCard.name)
+        addToCollectionYGO(username, selectedCard.ygoprodeck_url, selectedCard.name)
       }
     return (
       <div className="search-container YGO-bkgrnd">

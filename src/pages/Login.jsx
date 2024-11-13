@@ -2,9 +2,9 @@ import { useState } from "react";
 import { login } from "../utilities/login";
 import "../App.css";
 
-const Login = ({ setIsLoggedIn, isLoggedIn }) => {
+const Login = ({ setIsLoggedIn, isLoggedIn, username, setUsername }) => {
+  
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const submitHandler = async (event) => {
@@ -12,6 +12,8 @@ const Login = ({ setIsLoggedIn, isLoggedIn }) => {
     const status = await login(email, username, password);
     if (status === 200) {
       await setIsLoggedIn(true);
+      setUsername(username);
+      console.log(username);
       console.log(isLoggedIn);
       console.log("Login successful.");
     } else {
@@ -19,7 +21,6 @@ const Login = ({ setIsLoggedIn, isLoggedIn }) => {
       console.log("Login failed.");
     }
   };
-
 
     return (
         <div>
