@@ -22,7 +22,6 @@ const Login = ({ setIsLoggedIn, isLoggedIn, username, setUsername }) => {
     }
   };
 
-
     return (
         <div>
             <hr />
