@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionYGO } from '../utilities/addCollectionYGO';
+import "../App.css"
 
 const SearchBarYGO = () => {
     const [cards, setCards] = useState([]);
@@ -37,7 +38,7 @@ const SearchBarYGO = () => {
     };
  
     return (
-      <div className="search-container">
+      <div className="search-container YGO-bkgrnd">
       <div className="search-left">
         <input className="search-bar-style"
                     type="text"
@@ -58,7 +59,7 @@ const SearchBarYGO = () => {
                             {cards.map(card => (
                                 <p 
                                     key={card.id} 
-                                    className="search-result-item"
+                                    className="search-result-item-YGO"
                                     //Locks display to clicked card
                                     onClick={() => {handleCardClick(card), console.log(selectedCard)}}
                                     onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
@@ -78,8 +79,9 @@ const SearchBarYGO = () => {
             <div className="search-right">
                 {selectedCard && (
                      <div className="card-info-container text-style">
-                        <h2>{selectedCard.name}</h2>
+                        <h2 className="Heading-bkgrnd">{selectedCard.name}</h2>
                         <img  className="card-styling" src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
+                    <div className="txt-bkgrnd">
                         <p><strong>Type:</strong> {selectedCard.type}</p>
                         <p><strong>Description:</strong> {selectedCard.desc}</p>
                         <p><strong>Attack:</strong> {selectedCard.atk != null ? selectedCard.atk : 'N/A'}</p>
@@ -87,6 +89,7 @@ const SearchBarYGO = () => {
                         <p><strong>Level:</strong> {selectedCard.level != null && selectedCard.level !== 0 ? selectedCard.level : 'N/A'}</p>
                         <p><strong>Attribute:</strong> {selectedCard.attribute != null ? selectedCard.attribute : 'N/A'}</p>
                         <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
+                    </div>
                     </div>
                 )}
             </div>
