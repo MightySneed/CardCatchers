@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { addToCollectionPOK } from '../utilities/addCollectionPOK';
 
 const SearchBarPOK = () => {
     const [cards, setCards] = useState([]);
@@ -45,7 +46,10 @@ const SearchBarPOK = () => {
         setPage(nextPage);
         fetchData(nextPage);
     };
-
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionPOK(selectedCard.id, selectedCard.name)
+      }
     return (
         <div className="search-container POK-bkgrnd">
         <div className="search-left">
@@ -92,7 +96,7 @@ const SearchBarPOK = () => {
                         <div className="txt-bkgrnd-POK">
                         <p>Type: {selectedCard.types?.join(', ')}</p>
                         <p>Set: {selectedCard.set.name}</p>
-                        <button className="add-to-button">Add to Collection</button>
+                        <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
                     </div>
                     </div>
                 )}

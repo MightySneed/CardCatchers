@@ -1,31 +1,78 @@
-import { useState } from "react"
-import register from "../utilities/register"
-import "../App.css"
+import { useState } from "react";
+import register from "../utilities/register";
+import TermsModal from "../utilities/TCSPPModal"; // Import the modal component
+import "../App.css";
 
 const Register = () => {
-    const submitHandler = async (event) => {
-        event.preventDefault()
-        await register(email, username, password)
-    }
-    const [email, setEmail] = useState()
-    const [username, setUsername] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
+    const [showModal, setShowModal] = useState(false); // Control modal visibility
+
+    // Handle showing the modal instead of submitting immediately
+    const handleRegisterClick = (event) => {
+        event.preventDefault();
+        setShowModal(true); // Show modal on register button click
+    };
+
+    // Proceed with registration after terms are accepted
+    const handleAcceptTerms = async () => {
+        setShowModal(false); // Hide modal once accepted
+
+        // Basic validation
+        if (!email || !username || !password) {
+            setMessage("Please fill in all fields.");
+            return;
+        }
+
+        try {
+            await register(email, username, password);
+            setMessage("Registration successful!");
+        } catch (error) {
+            setMessage("Registration failed. Please try again.");
+            console.error("Registration error:", error);
+        }
+    };
+
     return (
         <div>
             <hr />
-        <form onSubmit={submitHandler} className="register-form">
-            <input className="inputbox-style" onChange={(event)=>setEmail(event.target.value)} placeholder="Email"></input>
-            <br />
-            <input className="inputbox-style" onChange={(event)=>setUsername(event.target.value)} placeholder="Username"></input>
-            <br />
-            <input className="inputbox-style" onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
-            <br />
-            <button className="register-button" type="submit">REGISTER</button>
-            <br />
-        </form>
-        <hr />
+            <form onSubmit={handleRegisterClick} className="register-form">
+                <input
+                    type="email"
+                    className="inputbox-style"
+                    onChange={(event) => setEmail(event.target.value)}
+                    placeholder="Email"
+                    value={email}
+                />
+                <br />
+                <input
+                    type="text"
+                    className="inputbox-style"
+                    onChange={(event) => setUsername(event.target.value)}
+                    placeholder="Username"
+                    value={username}
+                />
+                <br />
+                <input
+                    type="password"
+                    className="inputbox-style"
+                    onChange={(event) => setPassword(event.target.value)}
+                    placeholder="Password"
+                    value={password}
+                />
+                <br />
+                <button className="register-button" type="submit">REGISTER</button>
+                <br />
+            </form>
+            <hr />
+            {message && <p className="message">{message}</p>}
+            
+            {/* Display modal if showModal is true */}
+            {showModal && <TermsModal onAccept={handleAcceptTerms} />}
         </div>
-    )
-}
+    );
+};
 
-export default Register
+export default Register;
