@@ -63,7 +63,10 @@ const SearchBarMTG = ({username}) => {
   <p 
                             key={card.id}
                             className="search-result-item-MTG"  
-                            onClick={() => {setSelectedCard(card), console.log(selectedCard)}}
+                             //Locks display to clicked card
+                             onClick={() => {handleCardClick(card), console.log(selectedCard)}}
+                             onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
+
                             style={{ cursor: 'pointer' }}
 >
                             {card.name}
@@ -78,12 +81,14 @@ const SearchBarMTG = ({username}) => {
 </div>
 <div className="search-right">
                 {selectedCard && (
-<div className="card-info-container text-style">
-<h2>{selectedCard.name}</h2>
-<img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
-<p>{selectedCard.oracle_text}</p>
-<button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
-</div>
+                    <div className="card-info-container text-style">
+                        <h2 className="Heading-bkgrnd-MTG">{selectedCard.name}</h2>
+                        <img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
+                    <div className="txt-bkgrnd-MTG">
+                        <p>{selectedCard.oracle_text}</p>
+                        <button className="add-to-button">Add to Collection</button>
+                    </div>
+                    </div>
                 )}
 </div>
 </div>
