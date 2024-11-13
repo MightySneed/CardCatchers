@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { addToCollectionPOK } from '../utilities/addCollectionPOK';
 
 const SearchBarPOK = () => {
     const [cards, setCards] = useState([]);
