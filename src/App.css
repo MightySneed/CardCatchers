@@ -3,7 +3,7 @@ body {
     text-align: justify;
     color: rgb(20, 20, 20);
 }
-
+ 
 .text-style {
     font-family: tahoma;
     color: rgb(20, 20, 20);
@@ -12,20 +12,20 @@ body {
 .privacy, .terms, .cookies {
     background-color: antiquewhite;
 }
-
+ 
 .Navbarlist {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     justify-content: space-around;
     list-style-type: none;
-    
+   
 }
-
+ 
 .tcs{
     list-style-type: disc;
 }
-
+ 
 footer {
     position: fixed;
     bottom: 0;
@@ -39,158 +39,229 @@ footer {
     background-color: rgb(105, 105, 105);
     padding: 1px;
 }
-  
+ 
 #Navbar {
     border: rgb(51, 51, 51);
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    background-color: rgb(105, 105, 105); 
+    background-color: rgb(105, 105, 105);
     color: white;
     width: 95%;
     border-radius: 3px;
     top: 0;
     position: fixed;
-    z-index: 1000; 
+    z-index: 1000;
 }
-
+ 
 #root {
     margin-left: 5px auto;
     padding: 2rem;
     padding-left: 10px;
     text-align: row;
-    background-color: rgb(245, 245, 245); 
+    background-color: rgb(245, 245, 245);
     max-height: 100%;
     max-width: 100%;
 }
-
+ 
 .search-bar-style {
     border-radius: 8px;
     border-width: 1px;
 }
-
+ 
+/* SearchYGO,POK,MTG styling */
+.YGO-bkgrnd {
+    background-image: url("./assets/YGO-Background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+ 
+.POK-bkgrnd {
+    background-image: url("./assets/POK-Background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+ 
+.MTG-bkgrnd {
+    background-image: url("./assets/MTG-Background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+ 
 /* login and register form styling */
 .register-form, .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: rgb(60, 60, 60); 
-    border: 1px solid rgb(60, 60, 60); 
+    background-color: rgb(60, 60, 60);
+    border: 1px solid rgb(60, 60, 60);
     border-radius: 8px;
     max-width: 400px;
     width: 100%;
     margin: 20px auto;
     color:white;
-    
+   
 }
-
+ 
 .register-button, .login-button, .add-to-button {
     padding: 8px 16px;
-    background-color: rgb(0, 123, 255); 
+    background-color: rgb(0, 123, 255);
     color: white;
     font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .register-button:hover, .login-button:hover, .add-to-button:hover {
     background-color: rgb(0, 102, 204);
     scale: 1.1 ;
 }
-
+ 
 .inputbox-style {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #cccccc; 
+    border: 1px solid #cccccc;
     border-radius: 4px;
     background-color: #ffffff;
 }
-
+ 
 /* card search styling */
 .card-styling {
     width: 350px;
     height: 450px;
     display: block;
     border-radius: 8px;
+    padding: 4%;
 }
-
+ 
 .selected-card {
     width: 100px;
 }
-
+ 
 .nav-text {
     color: rgb(255, 255, 255);
 }
-
+ 
 .card-info-container {
     border-radius: 10px;
     padding-left: 50px;
+    padding-right: 100px;
     padding-bottom: 50px;
-    color: black;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
 }
-
+ 
+.txt-bkgrnd-YGO{
+    border-radius: 10px;
+    background-color: rgb(17, 0, 114);
+    padding: 2%;
+}
+ 
+.txt-bkgrnd-POK{
+    border-radius: 10px;
+    background-color: rgb(208, 255, 0);
+    color: black;
+    padding: 2%;
+}
+ 
+.txt-bkgrnd-MTG {
+    border-radius: 10px;
+    background-color: rgb(12, 85, 22);
+    padding: 2%;
+}
+ 
+.Heading-bkgrnd-YGO {
+    border-radius: 10px;
+    background-color: rgb(17, 0, 114);
+    padding: 2%;
+}
+ 
+.Heading-bkgrnd-POK{
+    border-radius: 10px;
+    background-color: rgb(208, 255, 0);
+    color: black;
+    padding: 2%;
+}
+ 
+.Heading-bkgrnd-MTG {
+    border-radius: 10px;
+    background-color: rgb(12, 85, 22);
+    padding: 2%;
+}
+ 
 .drop-down-styles {
     border-radius: 5px;
 }
-
+ 
 /* Main Page styles */
-.image-float-container img {
-    float: inline-start;
-    margin: 5px;
-    width: 32%;
-    height: auto;
-    display: block;
+.image-float-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
 }
-.image-float-container img{
-    position: relative;
-    display: block;
-}
-
+ 
 .mainImg {
-    height: 625px;
-    width: 875px;
+    height: 425px;
+    width: 575px;
     border-radius: 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%);
+    cursor: pointer;
 }
-
+ 
+.mainImg:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+    z-index: 1;
+}
+ 
 .image-float-container:hover {
     opacity: 1;
 }
-
+ 
 .image-float-container:after {
     content: "";
     display: table;
     clear: both;
 }
-
+ 
 .text {
     font-style: italic;
 }
-
+ 
 .image-container {
     display: inline-block;
     pointer-events: none;
 }
-
+ 
 .img-colour {
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: grayscale(100%);
     pointer-events: auto;
  }
-
+ 
 .img-colour:hover {
     filter: grayscale(0%);
     transform: scale(1.1);
-    z-index: 1; 
+    z-index: 1;
  }
-
+ 
 .button {
     cursor: pointer;
     transition: cursor 0.3s ease;
  }
-
+ 
 .custom-cursor {
     position: absolute;
     width: 20px;
@@ -200,67 +271,98 @@ footer {
     pointer-events: none;
     transition: transform 0.1s;
  }
-
+ 
 .column {
     float:left;
     width: 100%;
     padding: 1px;
  }
-
+ 
 .row::after {
     content: "";
     clear: both;
     display: table;
   }
-
+ 
   /* search result styles */
 .search-container {
     display: flex;
     align-items: flex-start;
     }
-    
+   
 .search-left {
     width: 50%;
     }
-    
+   
 .search-right {
     width: 50%;
     margin-left: 20px;
     }
-    
+   
 .search-bar-style {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: rgb(240, 240, 240); 
-  border: 1px solid rgb(180, 180, 180); 
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(180, 180, 180);
   color: black;
   font-weight: bold;
     }
-    
+   
 .search-results {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     }
-    
-.search-result-item {
+   
+.search-result-item-YGO {
     cursor: pointer;
-    border: 1px solid rgb(60, 60, 60);
     border-radius: 4px;
     padding: 10px;
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(17, 0, 114);
     width: calc(50% - 5px);
     box-sizing: border-box;
     font-weight: bold;
     color: white;
-    }
-    
-.search-result-item p {
-    margin: 0;
-    color: rgb(255, 255, 255);
-    }
-
+}
+ 
+.search-result-item-YGO:hover {
+    scale: 1.02 ;
+    background-color: rgb(11, 0, 77);
+}
+   
+.search-result-item-POK {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(208, 255, 0);
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+    font-weight: bold;
+    color: black;
+}
+ 
+.search-result-item-POK:hover {
+    scale: 1.02 ;
+    background-color: rgb(147, 180, 0);
+}
+ 
+.search-result-item-MTG {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(12, 85, 22);
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+    font-weight: bold;
+    color: white;
+}
+ 
+.search-result-item-MTG:hover {
+    scale: 1.02 ;
+    background-color: rgb(7, 48, 12);
+}
+ 
 .load-more-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 185, 31);
@@ -270,13 +372,13 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .load-more-bttn:hover {
     background-color: rgb(0, 150, 25);
     scale: 1.1;
 }
-
-
+ 
+ 
 /* My Account styles */
 .collections-bttn {
     padding: 8px 16px;
@@ -287,12 +389,12 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .collections-bttn:hover {
     background-color: rgb(0, 150, 25);
     scale: 1.1;
 }
-
+ 
 .del-acc-bttn {
     padding: 8px 16px;
     background-color: rgb(255, 0, 0);
@@ -302,12 +404,12 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .del-acc-bttn:hover {
     background-color: rgb(214, 0, 0);
     scale: 1.1;
 }
-
+ 
 .update-acc-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 123, 255);
@@ -317,12 +419,12 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .update-acc-bttn:hover {
     background-color: rgb(0, 102, 204);
     scale: 1.1;
 }
-
+ 
 .yes-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 185, 31);
@@ -332,12 +434,12 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .yes-bttn:hover {
     background-color: rgb(0, 150, 25);
     scale: 1.1;
 }
-
+ 
 .no-bttn {
     padding: 8px 16px;
     background-color: rgb(255, 0, 0);
@@ -347,17 +449,17 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .no-bttn:hover {
     background-color: rgb(214, 0, 0);
     scale: 1.1;
 }
-
+ 
 .bttn-container {
-    display: flex; 
+    display: flex;
     gap: 10px;      
 }
-
+ 
 .new-collection-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 123, 255);
@@ -367,12 +469,12 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .new-collection-bttn:hover {
     background-color: rgb(0, 102, 204);
     scale: 1.1;
 }
-
+ 
 .view-collections-bttn, .updt-email-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 225, 255);
@@ -382,12 +484,12 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .view-collections-bttn:hover, .updt-email-bttn:hover {
     background-color: rgb(0, 194, 194);
     scale: 1.1;
 }
-
+ 
 .updt-user-bttn {
     padding: 8px 16px;
     background-color: rgb(76, 0, 255);
@@ -397,12 +499,12 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .updt-user-bttn:hover {
     background-color: rgb(47, 0, 156);
     scale: 1.1;
 }
-
+ 
 .updt-pass-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 255, 128);
@@ -412,7 +514,7 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
-
+ 
 .updt-pass-bttn:hover {
     background-color: rgb(0, 156, 78);
     scale: 1.1;

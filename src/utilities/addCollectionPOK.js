@@ -1,6 +1,6 @@
 import readCookie from "./readCookie";
 
-export const addToCollectionPOK = async (id, name, game) =>  {
+export const addToCollectionPOK = async (username ,id, name, game) =>  {
     try {
         const uri = "https://api.pokemontcg.io/v2/cards/" + id
         console.log(uri, name, game)
@@ -18,7 +18,8 @@ export const addToCollectionPOK = async (id, name, game) =>  {
                     {
                         url: uri,
                         name: name,
-                        game: "POK"
+                        game: "POK",
+                        username: username
                     }
                 )
             }
