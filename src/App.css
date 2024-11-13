@@ -140,6 +140,7 @@ footer {
     height: 450px;
     display: block;
     border-radius: 8px;
+    padding: 4%;
 }
 
 .selected-card {
@@ -159,15 +160,41 @@ footer {
     font-weight: bold;
 }
 
-.txt-bkgrnd {
+.txt-bkgrnd-YGO{
     border-radius: 10px;
     background-color: rgb(17, 0, 114);
     padding: 2%;
 }
 
-.Heading-bkgrnd {
+.txt-bkgrnd-POK{
+    border-radius: 10px;
+    background-color: rgb(208, 255, 0);
+    color: black;
+    padding: 2%;
+}
+
+.txt-bkgrnd-MTG {
+    border-radius: 10px;
+    background-color: rgb(12, 85, 22);
+    padding: 2%;
+}
+
+.Heading-bkgrnd-YGO {
     border-radius: 10px;
     background-color: rgb(17, 0, 114);
+    padding: 2%;
+}
+
+.Heading-bkgrnd-POK{
+    border-radius: 10px;
+    background-color: rgb(208, 255, 0);
+    color: black;
+    padding: 2%;
+}
+
+.Heading-bkgrnd-MTG {
+    border-radius: 10px;
+    background-color: rgb(12, 85, 22);
     padding: 2%;
 }
 
