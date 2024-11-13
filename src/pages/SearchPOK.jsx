@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-const SearchBarPOK = () => {
+import { addToCollectionPOK } from '../utilities/addCollectionPOK';
+ 
+const SearchBarPOK = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
+    const [ clicked, setClicked] = useState(false);
  
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -27,24 +29,27 @@ const SearchBarPOK = () => {
             setPage(1);  // Reset to the first page on new search
         }
     };
-
+ 
     const handleMouseEnter = (card) => {
         if (!clicked) {
             setSelectedCard(card);
         }
     };
-
+ 
     const handleCardClick = (card) => {
         setSelectedCard(card);
         setClicked(true);
     };
-
+ 
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
- 
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionPOK(username, selectedCard.id, selectedCard.name)
+      }
     return (
         <div className="search-container POK-bkgrnd">
         <div className="search-left">
@@ -56,16 +61,16 @@ const SearchBarPOK = () => {
                     onKeyDown={handleKeyDown}
                 />
                 {loading && (
-                    <div>
-                        <img src="https://c.tenor.com/B5oRa2uSYfEAAAAj/notlikeduck-duck.gif" alt="Loading..." size='50px' />
-                        <p>Please wait...</p>
-                    </div>
+<div>
+<img src="https://c.tenor.com/B5oRa2uSYfEAAAAj/notlikeduck-duck.gif" alt="Loading..." size='50px' />
+<p>Please wait...</p>
+</div>
                 )}
                 {!loading && (
-                    <>
-                    <div className="search-results">
+<>
+<div className="search-results">
                     {cards.map(card => (
-                        <p 
+<p 
                             key={card.id}
                             className="search-result-item-POK" 
                             //Locks display to clicked card

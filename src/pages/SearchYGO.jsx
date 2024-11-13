@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionYGO } from '../utilities/addCollectionYGO';
-import "../App.css"
-
-const SearchBarYGO = () => {
+ 
+const SearchBarYGO = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
+    const [ clicked, setClicked] = useState(false);
  
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -31,12 +31,28 @@ const SearchBarYGO = () => {
         }
     };
  
+    const handleMouseEnter = (card) => {
+        if (!clicked) {
+            setSelectedCard(card);
+        }
+    };
+ 
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
+        setClicked(true);
+    };
+ 
+ 
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
  
+    const handleATBClick = () =>{
+        console.log('button added')
+        addToCollectionYGO(username, selectedCard.ygoprodeck_url, selectedCard.name)
+      }
     return (
       <div className="search-container YGO-bkgrnd">
       <div className="search-left">

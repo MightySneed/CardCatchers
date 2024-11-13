@@ -1,7 +1,10 @@
 import { useState } from "react"
 
-const MyAccount = () => {
+
+const MyAccount = ({isLoggedIn}) => {
     const [isClicked, setIsClicked] = useState(false)
+
+
     
     const deleteAccount = () => {
         setIsClicked(!isClicked)
@@ -13,6 +16,7 @@ const MyAccount = () => {
 
     return (
         <div>
+            { isLoggedIn ? <>
             <br />
             <br />
             {isClicked && <div>
@@ -29,7 +33,9 @@ const MyAccount = () => {
             <a href="/my-collections"><button className="collections-bttn">My Collections</button></a>
             <button className="del-acc-bttn">Delete Account</button>
             <a href="/update-details"><button className="update-acc-bttn">Update Account Details</button></a>
-            </div>
+            </div> 
+            </> 
+            : <><h2>You are not logged in.</h2></> }
         </div>
     )
 }
