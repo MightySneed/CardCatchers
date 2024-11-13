@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionMTG } from '../utilities/addCollectionMTG';
 
-const SearchBarMTG = () => {
+const SearchBarMTG = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
@@ -37,7 +37,7 @@ const SearchBarMTG = () => {
     
     const handleATBClick = () =>{
         console.log('button added')
-        addToCollectionMTG(selectedCard.scryfall_uri, selectedCard.name)
+        addToCollectionMTG(username, selectedCard.scryfall_uri, selectedCard.name)
       }
 
     return (

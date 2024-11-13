@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionPOK } from '../utilities/addCollectionPOK';
 
-const SearchBarPOK = () => {
+const SearchBarPOK = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
@@ -48,7 +48,7 @@ const SearchBarPOK = () => {
     };
     const handleATBClick = () =>{
         console.log('button added')
-        addToCollectionPOK(selectedCard.id, selectedCard.name)
+        addToCollectionPOK(username, selectedCard.id, selectedCard.name)
       }
     return (
         <div className="search-container">
