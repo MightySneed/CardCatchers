@@ -69,7 +69,7 @@ const ViewAllCollections = () => {
                 return (
                 <div key={card.id} className="card-item">
                     <h3>{card.name}</h3>
-                    <a href={card.url} target="_blank" rel="noopener noreferrer">View Card</a>
+                    <a href={card.image_url} target="_blank" rel="noopener noreferrer">View Card</a>
                 </div>)
 })}
         </div>
