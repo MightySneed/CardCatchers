@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionYGO } from '../utilities/addCollectionYGO';
 
-const SearchBarYGO = ({username}) => {
+const SearchBarYGO = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionMTG } from '../utilities/addCollectionMTG';
 
-const SearchBarMTG = ({username}) => {
+const SearchBarMTG = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);

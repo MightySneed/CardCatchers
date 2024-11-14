@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionPOK } from '../utilities/addCollectionPOK';
 
-const SearchBarPOK = ({username}) => {
+const SearchBarPOK = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
