@@ -45,31 +45,36 @@ const ViewAllCollections = () => {
 
     return (
         <div>
-            <h1>All Collections</h1>
-            <h2>Yu-Gi-Oh!</h2>
+            <h1 className="main-txt">All Collections</h1>
+            <h2 className="YGO-txt">Yu-Gi-Oh!</h2>
             <ul>
-                <li><h4>YGO 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-                <li><h4>YGO 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
+                <li><h4 className="YGO-txt">YGO 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
+                <li><h4 className="YGO-txt">YGO 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
             </ul>
-            <h2>Pokemon</h2>
+            <h2 className="POK-txt">Pokemon</h2>
             <ul>
-                <li><h4>PKMN 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-                <li><h4>PKMN 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
+                <li><h4 className="POK-txt">PKMN 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
+                <li><h4 className="POK-txt">PKMN 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
             </ul>
-            <h2>Magic The Gathering</h2>
+            <h2 className="MTG-txt">Magic The Gathering</h2>
             <ul>
-                <li><h4>MTG 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-                <li><h4>MTG 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
+                <li><h4 className="MTG-txt">MTG 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
+                <li><h4 className="MTG-txt">MTG 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
             </ul>
         
         <div>
-        <h2>Your Stored Cards</h2>
+        <h2 className="main-txt">Your Stored Cards</h2>
         <div>
             {cards.map((card) => {
+                const fontClass =
+                card.game === "MTG" ? "MTG-txt" :
+                card.game === "POK" ? "POK-txt" :
+                card.game === "YGO" ? "YGO-txt" :
+                "main-txt";
                 return (
                 <div key={card.id} className="card-item">
-                    <h3>{card.name}</h3>
-                    <a href={card.image_url} target="_blank" rel="noopener noreferrer">View Card</a>
+                    <h3 className={fontClass}>{card.name}</h3>
+                    <a className="main-txt" href={card.url} target="_blank" rel="noopener noreferrer">View Card</a>
                 </div>)
 })}
         </div>

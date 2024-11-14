@@ -1,9 +1,9 @@
 import YGO from '../assets/YGO.jpg';
-import Pokemon from "../assets/Pokemon.jpg";
+import Pokemon from '../assets/Pokemon.jpg';
 import MTG from '../assets/MTG.jpg';
 import { useNavigate } from 'react-router-dom';
 
-const Welcome = () => { 
+const Welcome = () => {
     const navigate = useNavigate();
 
     const ygoClick = () => {
