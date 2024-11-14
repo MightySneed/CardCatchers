@@ -67,9 +67,9 @@ const ViewAllCollections = () => {
         <div>
             {cards.map((card) => {
                 const fontClass =
-                card.set === "searchMTG" ? "MTG-txt" :
-                card.set === "searchPOK" ? "POK-txt" :
-                card.set === "searchYGO" ? "YGO-txt" :
+                card.game === "MTG" ? "MTG-txt" :
+                card.game === "POK" ? "POK-txt" :
+                card.game === "YGO" ? "YGO-txt" :
                 "main-txt";
                 return (
                 <div key={card.id} className="card-item">
