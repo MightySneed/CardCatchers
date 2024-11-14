@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionYGO } from '../utilities/addCollectionYGO';
- 
-const SearchBarYGO = ({username}) => {
+import "../App.css"
+
+const SearchBarYGO = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
@@ -95,9 +96,11 @@ const SearchBarYGO = ({username}) => {
             <div className="search-right">
                 {selectedCard && (
                      <div className="card-info-container text-style">
-                        <h2 className="Heading-bkgrnd">{selectedCard.name}</h2>
+
+                        <h2 className="Heading-bkgrnd-YGO">{selectedCard.name}</h2>
                         <img  className="card-styling" src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
-                    <div className="txt-bkgrnd">
+                    <div className="txt-bkgrnd-YGO">
+
                         <p><strong>Type:</strong> {selectedCard.type}</p>
                         <p><strong>Description:</strong> {selectedCard.desc}</p>
                         <p><strong>Attack:</strong> {selectedCard.atk != null ? selectedCard.atk : 'N/A'}</p>

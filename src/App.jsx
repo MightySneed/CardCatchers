@@ -48,7 +48,7 @@ useEffect (() => {
             <>
               <li>Welcome {username}!</li>
               <li><Link to="/my-account">My Account</Link></li>
-              <li><button onClick={logOut}>Log Out</button></li>
+              <li><button className="no-bttn" onClick={logOut}>Log Out</button></li>
               </>}
             </ul>
         </div>

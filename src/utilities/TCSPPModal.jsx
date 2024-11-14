@@ -10,7 +10,7 @@ const TermsModal = ({ onAccept }) => {
                 <p>Terms and Conditions...</p>
                 <p>Privacy Policy...</p>
                 
-                <button onClick={onAccept}>I Accept</button>
+                <button className="yes-bttn" onClick={onAccept}>I Accept</button>
             </div>
         </div>
     );
