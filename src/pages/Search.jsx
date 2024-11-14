@@ -1,7 +1,7 @@
 // Search.jsx
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom"; // Import useLocation to access router state
-import Game from './game';
+import Game from './Game';
 import SearchBarYGO from './SearchYGO';
 import SearchBarMTG from './SearchMTG';
 import SearchBarPOK from './SearchPOK';
