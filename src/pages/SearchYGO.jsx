@@ -3,7 +3,7 @@ import axios from 'axios';
 import { addToCollectionYGO } from '../utilities/addCollectionYGO';
 import "../App.css"
 
-const SearchBarYGO = ({username}) => {
+const SearchBarYGO = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
