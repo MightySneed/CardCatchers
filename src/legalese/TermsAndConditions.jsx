@@ -4,14 +4,14 @@ const TCs = () => {
     return (
         <div className='terms'>
             <h1>TERMS AND CONDITIONS</h1>
-            <h5>Last Updated 11th November 2024</h5>
+            <h5>Last Updated 14th November 2024</h5>
             <br />
             <h2>AGREEMENT TO OUR LEGAL TERMS</h2>
             <p>We are TCG Card Catchers('Company', 'We', 'Us', or 'Our'), a company registered in the United Kingdom at 28 Paradise Street, Liverpool, UK, L1 3EU.</p>
             <p>We operate the website [enter web address here once hosted] (the 'Site'), as well as any other related products and services that refer or link to these legal terms (the 'Legal Terms')(collectively, the 'Services').</p>
-            <p>You can contact us by phone at 0151 236 0070, email at admin@tcgcc.co.uk, or by post to 28 Paradise Street, Liverpool, United Kingdom, L1 3EU.</p>
+            <p>You can contact us by phone at 0151 236 0070, email at admin@tcgcc.netlify.app, or by post to 28 Paradise Street, Liverpool, United Kingdom, L1 3EU.</p>
             <p>These legal terms constitute a legally binding agreement made between you, whether personally and/or on behalf of an entity ('you'), and TCG Card Catchers, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSELY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
-            <p>We will provide you with prior notice of any scheduled changes to the Services you are using. The modified Legal Terms will become effective upon posting or notifying you by admin@tcgcc.co.uk, as stated in the email message. By continuing to use the Services after the effective date of any changes, you agree to be bound by the modified terms.</p>
+            <p>We will provide you with prior notice of any scheduled changes to the Services you are using. The modified Legal Terms will become effective upon posting or notifying you by admin@tcgcc.netlify.app, as stated in the email message. By continuing to use the Services after the effective date of any changes, you agree to be bound by the modified terms.</p>
             <p>All users who are minors in the jurisdiction of which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Services. If you are a minor, ou must have your parent or guardian read and agree to these Legal Terms prior to you using the Services.</p>
             <p>We recommend printing a copy of these Legal Terms for your records.</p>
             <h2>Table Of Contents</h2>
@@ -55,7 +55,7 @@ const TCs = () => {
             </ul>
             <p>solely for your personal, non-commercial use or internal business purpose.</p>
             <p>Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed or otherwise explited for any commercial purpose whatsoever, without our express prior written permission.</p>
-            <p>If you wish to make any use of the Services, Content, or Marks other than set out in this section or anywhere else in our Legal Terms, please address your request to: admin@tcgcc.co.uk. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as owners and/or licensers of the Services, Content or Marks and ensure that any copyright and/or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.</p>
+            <p>If you wish to make any use of the Services, Content, or Marks other than set out in this section or anywhere else in our Legal Terms, please address your request to: admin@tcgcc.netlify.app. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as owners and/or licensers of the Services, Content or Marks and ensure that any copyright and/or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.</p>
             <p>We reserve all rights, not expressly granted to you in and of the Services, Content, and Marks.</p>
             <p>Any breach of these Intellectual Property Rights will constitute a material breach of our Legal Terms and your right to use our Services will terminate immediately.</p>
             <h3>Your submissions</h3>
@@ -72,7 +72,7 @@ const TCs = () => {
             </ul>
             <p>You are solely responsible for your Submissions and you expressly agree to reimburse us for any nd all losses that we may suffer because of your breach of (a) this section, (b) any third party's intellectual property rights, or (c) applicable law.</p>
             <h2>3. USER REPRESENTATIONS</h2>
-            <p>By using the Services, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary by contacting us at: admin@tcgcc.co.uk, including your username and email associated with your account; (3) you have the legal capacity and you agree to comply with these Legal Terms; (4) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received permission from a parent/guardian to use the Services; (5) you will not access the Services through automated or non-human means, whether through a bot, script or otherwise; (6) you will not use the Services for any illegal or unauthorised purpose; and (7) your use of the Services will not violate any applicable law or regulation.</p>
+            <p>By using the Services, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary by contacting us at: admin@tcgcc.netlify.app, including your username and email associated with your account; (3) you have the legal capacity and you agree to comply with these Legal Terms; (4) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received permission from a parent/guardian to use the Services; (5) you will not access the Services through automated or non-human means, whether through a bot, script or otherwise; (6) you will not use the Services for any illegal or unauthorised purpose; and (7) your use of the Services will not violate any applicable law or regulation.</p>
             <p>If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspen or terminate your account and refuse any and all current or future use of the Services (or any portion thereof).</p>
             <h2>4. USER REGISTRATION</h2>
             <p>You may be required to register to use the Services. You agree to keep your password confidential and will be responsiblefor all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.</p>
@@ -172,7 +172,7 @@ const TCs = () => {
             <h4>Liverpool L1 3EU</h4>
             <h4>United Kingdom</h4>
             <h4>Phone: (+44)151 236 0070</h4>
-            <h4>Email: admin@tcgcc.co.uk</h4>
+            <h4>Email: admin@tcgcc.netlify.app</h4>
         </div>
     )
 }

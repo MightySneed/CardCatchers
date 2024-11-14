@@ -9,7 +9,7 @@ const SearchBarMTG = ({username}) => {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
- 
+
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
@@ -28,25 +28,24 @@ const SearchBarMTG = ({username}) => {
             setPage(1);  // Reset to the first page on new search
         }
     };
- 
+
     const handleMouseEnter = (card) => {
         if (!clicked) {
             setSelectedCard(card);
         }
     };
- 
+
     const handleCardClick = (card) => {
         setSelectedCard(card);
         setClicked(true);
     };
- 
+
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
- 
-   
+
     const handleATBClick = () =>{
         console.log('button added')
         addToCollectionMTG(username, selectedCard.scryfall_uri, selectedCard.name)
@@ -92,7 +91,7 @@ const SearchBarMTG = ({username}) => {
             </div>
             <div className="search-right">
                 {selectedCard && (
-                    <div className="card-info-container text-style">
+                    <div className="card-info-container">
                         <h2 className="Heading-bkgrnd-MTG">{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
                     <div className="txt-bkgrnd-MTG">
