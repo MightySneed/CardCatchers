@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import { addToCollectionMTG } from '../utilities/addCollectionMTG';
  
@@ -9,6 +9,7 @@ const SearchBarMTG = ({username}) => {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
+    const containerRef = useRef(null);
 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -40,11 +41,31 @@ const SearchBarMTG = ({username}) => {
         setClicked(true);
     };
 
-    const loadMoreResults = () => {
-        const nextPage = page + 1;
-        setPage(nextPage);
-        fetchData(nextPage);
+    const handleScroll = () => {
+        if (containerRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+            if (scrollHeight - scrollTop <= clientHeight + 50 && !loading) {
+                const nextPage = page + 1;
+                setPage(nextPage);
+                fetchData(nextpage);
+            }
+        }
     };
+
+    useEffect(() => {
+        if (searchTerm) {
+            const currentContainer = containerRef.current;
+            if (currentContainer) {
+                currentContainer.addEventListener("scroll", handleScroll);
+            }
+            fetchData(page);
+            return () => {
+                if (currentContainer) {
+                    currentContainer.removeEventListener("scroll", handleScroll);
+                }
+            };
+        }
+    }, [page, searchTerm]);
 
     const handleATBClick = () =>{
         console.log('button added')
@@ -53,7 +74,7 @@ const SearchBarMTG = ({username}) => {
  
     return (
         <div className="search-container MTG-bkgrnd">
-            <div className="search-left">
+            <div className="search-left scrollable-list" ref={containerRef}>
                 <input className="search-bar-style"
                     type="text"
                     placeholder="I'm looking for..."
@@ -83,9 +104,6 @@ const SearchBarMTG = ({username}) => {
                         </p>
                     ))}
                     </div>
-                {cards.length > 0 && (
-                    <button className="load-more-bttn" onClick={loadMoreResults}>Load More</button>
-                )}
             </>
                 )}
             </div>

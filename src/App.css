@@ -74,7 +74,11 @@ footer {
     background-repeat: no-repeat; 
     background-size: cover;
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the content inside the YGO background */
+    position: relative; /* Ensures positioning of child elements inside this container */ 
 }
 
 .POK-bkgrnd {
@@ -405,7 +409,18 @@ font-family: 'Press Start 2P';
     scale: 1.1;
 }
  
- 
+.scrollable-list {
+    max-height: 400px; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px; 
+    margin: 10px 0;
+    background-color: transparent; 
+    border: 1px solid rgb(17, 0, 114);; 
+    border-radius: 4px; 
+    scrollbar-width: none;
+}
+
 /* My Account styles */
 .collections-bttn {
     padding: 8px 16px;

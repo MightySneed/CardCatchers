@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { addToCollectionPOK } from '../utilities/addCollectionPOK';
+import "../App.css"
 
 const SearchBarPOK = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
@@ -9,6 +10,7 @@ const SearchBarPOK = ({username, setUsername}) => {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
+    const containerRef = useRef(null);
  
     const fetchData = async (newPage = 1) => {
         setLoading(true);
@@ -16,11 +18,12 @@ const SearchBarPOK = ({username, setUsername}) => {
             const response = await axios.get(`https://api.pokemontcg.io/v2/cards?q=name:${encodeURIComponent(searchTerm)}*&order=relevance,name&dir=asc&pageSize=15&page=${newPage}`);
             const fetchedCards = response.data.data;
 //Appends the data  Adds another 15.
-            setCards(prevCards => newPage === 1 ? fetchedCards : [...prevCards, ...fetchedCards]);
+            setCards(prevCards => [...prevCards, ...fetchedCards]);
         } catch (error) {
             console.error("Error fetching data: ", error);
-        }
+        } finally {
         setLoading(false);
+        }
     };
  
     const handleKeyDown = (e) => {
@@ -40,19 +43,40 @@ const SearchBarPOK = ({username, setUsername}) => {
         setSelectedCard(card);
         setClicked(true);
     };
- 
-    const loadMoreResults = () => {
-        const nextPage = page + 1;
-        setPage(nextPage);
-        fetchData(nextPage);
+
+    const handleScroll = () => {
+        if (containerRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+            if (scrollHeight - scrollTop <= clientHeight + 50 && !loading) {
+                const nextPage = page + 1;
+                setPage(nextPage);
+                fetchData(nextpage);
+            }
+        }
     };
+
+    useEffect(() => {
+        if (searchTerm) {
+            const currentContainer = containerRef.current;
+            if (currentContainer) {
+                currentContainer.addEventListener("scroll", handleScroll);
+            }
+            fetchData(page);
+            return () => {
+                if (currentContainer) {
+                    currentContainer.removeEventListener("scroll", handleScroll);
+                }
+            };
+        }
+    }, [page, searchTerm]);
+
     const handleATBClick = () =>{
         console.log('button added')
         addToCollectionPOK(username, selectedCard.id, selectedCard.name)
       }
     return (
         <div className="search-container POK-bkgrnd">
-        <div className="search-left">
+        <div className="search-left scrollable-list" ref={containerRef}>
           <input className="search-bar-style"
                     type="text"
                     placeholder="I'm looking for..."
@@ -81,9 +105,6 @@ const SearchBarPOK = ({username, setUsername}) => {
                             {card.name}
                         </p>
                     ))}
-                {cards.length > 0 && (
-                    <button className="load-more-bttn" onClick={loadMoreResults}>Load More</button>
-                )}
                 </div>
             </>
                 )}
