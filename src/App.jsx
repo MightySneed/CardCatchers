@@ -19,6 +19,7 @@ import readCookie from './utilities/readCookie'
 
 
 const App = () => {
+  const [username, setUsername] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const logOut = () => {
     logOutUtil(isLoggedIn, setIsLoggedIn)
@@ -37,20 +38,26 @@ useEffect (() => {
       <div id="Navbar">
           <ul className='Navbarlist'>
             <li><Link to="/">Home</Link></li>
+            { !isLoggedIn &&
+            <>
             <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Register</Link></li>
+            <li><Link to="/register">Register</Link></li> 
+            </>}
             <li><Link to="/search">Search</Link></li>
-            <li><Link to="/my-account">My Account</Link></li>
             { isLoggedIn && 
-              <li><button onClick={logOut}>Log Out</button></li>}
+            <>
+              <li>Welcome {username}!</li>
+              <li><Link to="/my-account">My Account</Link></li>
+              <li><button className="no-bttn" onClick={logOut}>Log Out</button></li>
+              </>}
             </ul>
         </div>
 
       <Routes>
         <Route path='/' element={<Welcome />}></Route>
-        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>
-        <Route path='/register' element={<Register />}></Route>
-        <Route path='/search' element={<Search />} />
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} username={username} setUsername={setUsername} />}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/search' element={<Search username={username} setUsername={setUsername} />} />
         <Route path='/my-account' element={<MyAccount isLoggedIn={isLoggedIn} />}></Route>
         <Route path='/my-collections' element={<MyCollections />}></Route>
         <Route path='/update-details' element={<UpdateDetails />}></Route>

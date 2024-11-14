@@ -1,5 +1,7 @@
 import readCookie from "./readCookie";
-export const addToCollectionYGO = async (url, name, game) =>  {
+
+export const addToCollectionYGO = async (username, url, name, game) =>  {
+
     try {
         console.log(url, name, game)
 
@@ -17,7 +19,8 @@ export const addToCollectionYGO = async (url, name, game) =>  {
                     {
                         url: url,
                         name: name,
-                        game: "YGO"
+                        game: "YGO",
+                        username: username
                     }
                 )
             }

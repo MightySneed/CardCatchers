@@ -3,20 +3,20 @@ import axios from 'axios';
 import { addToCollectionYGO } from '../utilities/addCollectionYGO';
 import "../App.css"
 
-const SearchBarYGO = () => {
+const SearchBarYGO = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
-
+ 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
           const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${encodeURIComponent(searchTerm)}&num=15&offset=${(newPage - 1) * 15}`);
             const fetchedCards = response.data.data;
-
+ 
             // If loading more, append the new results to the existing cards
             setCards(prevCards => newPage === 1 ? fetchedCards : [...prevCards, ...fetchedCards]);
         } catch (error) {
@@ -24,35 +24,35 @@ const SearchBarYGO = () => {
         }
         setLoading(false);
     };
-
+ 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             fetchData();
             setPage(1);  // Reset to the first page on new search
         }
     };
-
+ 
     const handleMouseEnter = (card) => {
         if (!clicked) {
             setSelectedCard(card);
         }
     };
-
+ 
     const handleCardClick = (card) => {
         setSelectedCard(card);
         setClicked(true);
     };
-
-
+ 
+ 
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
-
+ 
     const handleATBClick = () =>{
         console.log('button added')
-        addToCollectionYGO(selectedCard.ygoprodeck_url, selectedCard.name)
+        addToCollectionYGO(username, selectedCard.ygoprodeck_url, selectedCard.name)
       }
     return (
       <div className="search-container YGO-bkgrnd">
@@ -96,9 +96,11 @@ const SearchBarYGO = () => {
             <div className="search-right">
                 {selectedCard && (
                      <div className="card-info-container text-style">
+
                         <h2 className="Heading-bkgrnd-YGO">{selectedCard.name}</h2>
                         <img  className="card-styling" src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
                     <div className="txt-bkgrnd-YGO">
+
                         <p><strong>Type:</strong> {selectedCard.type}</p>
                         <p><strong>Description:</strong> {selectedCard.desc}</p>
                         <p><strong>Attack:</strong> {selectedCard.atk != null ? selectedCard.atk : 'N/A'}</p>
@@ -113,5 +115,6 @@ const SearchBarYGO = () => {
         </div>
     );
 }
-
+ 
 export default SearchBarYGO;
+ 
