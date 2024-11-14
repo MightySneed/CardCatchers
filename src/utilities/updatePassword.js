@@ -10,7 +10,7 @@ const updatePassword = async (newPassword) => {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             },
-            body: JSON.stringify({ newPassword: newPassword }),
+            body: JSON.stringify({ password: newPassword }),
         });
         
         if (!res.ok) {
