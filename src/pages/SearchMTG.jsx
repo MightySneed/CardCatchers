@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionMTG } from '../utilities/addCollectionMTG';
-
+ 
 const SearchBarMTG = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +21,7 @@ const SearchBarMTG = ({username}) => {
         }
         setLoading(false);
     };
-
+ 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             fetchData();
@@ -50,7 +50,7 @@ const SearchBarMTG = ({username}) => {
         console.log('button added')
         addToCollectionMTG(username, selectedCard.scryfall_uri, selectedCard.name)
       }
-
+ 
     return (
         <div className="search-container MTG-bkgrnd">
             <div className="search-left">
@@ -71,7 +71,7 @@ const SearchBarMTG = ({username}) => {
                     <>
                     <div className="search-results">
                     {cards.map(card => (
-                        <p 
+                        <p
                             key={card.id}
                             className="search-result-item-MTG"  
                              //Locks display to clicked card
@@ -104,5 +104,6 @@ const SearchBarMTG = ({username}) => {
         </div>
     );
 }
-
+ 
 export default SearchBarMTG;
+ 

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionPOK } from '../utilities/addCollectionPOK';
 
-const SearchBarPOK = ({username}) => {
+const SearchBarPOK = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
-
+ 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
@@ -22,25 +22,25 @@ const SearchBarPOK = ({username}) => {
         }
         setLoading(false);
     };
-
+ 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             fetchData();
             setPage(1);  // Reset to the first page on new search
         }
     };
-
+ 
     const handleMouseEnter = (card) => {
         if (!clicked) {
             setSelectedCard(card);
         }
     };
-
+ 
     const handleCardClick = (card) => {
         setSelectedCard(card);
         setClicked(true);
     };
-
+ 
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
@@ -61,16 +61,16 @@ const SearchBarPOK = ({username}) => {
                     onKeyDown={handleKeyDown}
                 />
                 {loading && (
-                    <div>
-                        <img src="https://c.tenor.com/B5oRa2uSYfEAAAAj/notlikeduck-duck.gif" alt="Loading..." size='50px' />
-                        <p>Please wait...</p>
-                    </div>
+<div>
+<img src="https://c.tenor.com/B5oRa2uSYfEAAAAj/notlikeduck-duck.gif" alt="Loading..." size='50px' />
+<p>Please wait...</p>
+</div>
                 )}
                 {!loading && (
-                    <>
-                    <div className="search-results">
+<>
+<div className="search-results">
                     {cards.map(card => (
-                        <p 
+<p 
                             key={card.id}
                             className="search-result-item-POK" 
                             //Locks display to clicked card
@@ -94,6 +94,7 @@ const SearchBarPOK = ({username}) => {
                         <h2 className="Heading-bkgrnd-POK">{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.images.large} alt={selectedCard.name} />
                         <div className="txt-bkgrnd-POK">
+
                         <p>Type: {selectedCard.types?.join(', ')}</p>
                         <p>Set: {selectedCard.set.name}</p>
                         <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
@@ -104,5 +105,6 @@ const SearchBarPOK = ({username}) => {
         </div>
     );
 }
-
+ 
 export default SearchBarPOK;
+ 

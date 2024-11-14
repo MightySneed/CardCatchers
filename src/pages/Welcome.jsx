@@ -10,17 +10,17 @@ const Welcome = () => {
         navigate('/search', { state: { selectedGame: 'YGO' } });
         console.log('EXODIA, OBLITERATE!')
     };
-
+ 
     const pkmnClick = () => {
         navigate('/search', { state: { selectedGame: 'POK' } });
         console.log('Pikaaaa-chu')
     };
-
+ 
     const mtgClick = () => {
         navigate('/search', { state: { selectedGame: 'MTG' } });
         console.log('Theres no such thing as magic')
     };
-
+ 
     return (
         <div className="image-float-container">
             <div className="img-container" id='yugioh'>
@@ -35,5 +35,5 @@ const Welcome = () => {
         </div>
     );
 };
-
+ 
 export default Welcome;
