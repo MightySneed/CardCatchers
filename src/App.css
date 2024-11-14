@@ -214,8 +214,8 @@ footer {
 }
  
 .mainImg {
-    height: 425px;
-    width: 575px;
+    height: 42vh;
+    width: 57vh;
     border-radius: 10px;
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: grayscale(100%);
