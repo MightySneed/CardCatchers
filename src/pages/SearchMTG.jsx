@@ -107,3 +107,4 @@ const SearchBarMTG = ({username}) => {
 }
  
 export default SearchBarMTG;
+ 
