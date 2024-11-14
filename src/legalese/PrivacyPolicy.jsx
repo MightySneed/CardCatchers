@@ -4,7 +4,7 @@ const PrivPol = () => {
     return (
         <div className="privacy">
             <h1>PRIVACY NOTICE</h1>
-            <h4>Last updated 11th November 2024</h4>
+            <h4>Last updated 14th November 2024</h4>
             <br />
             <p>This Privacy Notive for TCG Card Catchers ('we'. 'us'. or 'our'), describes how ad why we might access, collect, store, use, and/or share ('process') your personal information when you use our services ('Services').</p>
             <h4>Questions or concerns?</h4>
@@ -87,7 +87,7 @@ const PrivPol = () => {
             <p>When we have no ongoing legitimate busines need to process your personal information, we will either delete or anonymize such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processig until deletion if possible.</p>
             <h2>8. DO WE COLLECT INFORMATION FROM MINORS?</h2>
             <h4>In Short: We do not knowingly collect data from or market to children under the age of 18 years of age.</h4>
-            <p>We do not knowingly collect, solicit data from, or market to children under 18 years of age, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 and/or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may hve collected from children under age 18, please contact us at admin@tcgcc.co.uk.</p>
+            <p>We do not knowingly collect, solicit data from, or market to children under 18 years of age, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 and/or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may hve collected from children under age 18, please contact us at admin@tcgcc.netlify.app.</p>
             <h2>9. WHAT ARE YOUR PRIVACY RIGHTS?</h2>
             <h4>In Short: You may review, change, or terminate your account at any time, depending on your country, province, or state of residence.</h4>
             <h4>Withdrawing your consent:</h4>

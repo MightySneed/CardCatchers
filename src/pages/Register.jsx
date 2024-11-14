@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import register from "../utilities/register";
-import TermsModal from "../utilities/TCSPPModal"; // Import the modal component
+import TermsModal from "../utilities/TCSPPModal";
 import "../App.css";
 
 const Register = () => {
@@ -8,7 +9,9 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
-    const [showModal, setShowModal] = useState(false); // Control modal visibility
+    const [showModal, setShowModal] = useState(false);
+    
+    const navigate = useNavigate(); // Initialize navigate function
 
     // Handle showing the modal instead of submitting immediately
     const handleRegisterClick = (event) => {
@@ -29,6 +32,7 @@ const Register = () => {
         try {
             await register(email, username, password);
             setMessage("Registration successful!");
+            navigate("/"); // Redirect to welcome page
         } catch (error) {
             setMessage("Registration failed. Please try again.");
             console.error("Registration error:", error);
