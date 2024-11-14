@@ -90,7 +90,7 @@ const SearchBarPOK = ({username, setUsername}) => {
             </div>
             <div className="search-right">
                 {selectedCard && (
-                    <div className="card-info-container text-style">
+                    <div className="card-info-container ">
                         <h2 className="Heading-bkgrnd-POK">{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.images.large} alt={selectedCard.name} />
                         <div className="txt-bkgrnd-POK">

@@ -91,7 +91,7 @@ const SearchBarMTG = ({username}) => {
             </div>
             <div className="search-right">
                 {selectedCard && (
-                    <div className="card-info-container text-style">
+                    <div className="card-info-container">
                         <h2 className="Heading-bkgrnd-MTG">{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
                     <div className="txt-bkgrnd-MTG">
