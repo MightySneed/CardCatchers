@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { addToCollectionMTG } from '../utilities/addCollectionMTG';
-
-const SearchBarMTG = ({username, setUsername}) => {
+ 
+const SearchBarMTG = ({username}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCard, setSelectedCard] = useState(null);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
-
+    const [ clicked, setClicked] = useState(false);
+ 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
@@ -20,28 +21,39 @@ const SearchBarMTG = ({username, setUsername}) => {
         }
         setLoading(false);
     };
-
+ 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             fetchData();
             setPage(1);  // Reset to the first page on new search
         }
     };
-
+ 
+    const handleMouseEnter = (card) => {
+        if (!clicked) {
+            setSelectedCard(card);
+        }
+    };
+ 
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
+        setClicked(true);
+    };
+ 
     const loadMoreResults = () => {
         const nextPage = page + 1;
         setPage(nextPage);
         fetchData(nextPage);
     };
-
-    
+ 
+   
     const handleATBClick = () =>{
         console.log('button added')
         addToCollectionMTG(username, selectedCard.scryfall_uri, selectedCard.name)
       }
-
+ 
     return (
-        <div className="search-container">
+        <div className="search-container MTG-bkgrnd">
             <div className="search-left">
                 <input className="search-bar-style"
                     type="text"
@@ -60,10 +72,12 @@ const SearchBarMTG = ({username, setUsername}) => {
                     <>
                     <div className="search-results">
                     {cards.map(card => (
-                        <p 
+                        <p
                             key={card.id}
-                            className="search-result-item"  
-                            onClick={() => {setSelectedCard(card), console.log(selectedCard)}}
+                            className="search-result-item-MTG"  
+                             //Locks display to clicked card
+                             onClick={() => {handleCardClick(card), console.log(selectedCard)}}
+                             onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
                             style={{ cursor: 'pointer' }}
                         >
                             {card.name}
@@ -79,15 +93,18 @@ const SearchBarMTG = ({username, setUsername}) => {
             <div className="search-right">
                 {selectedCard && (
                     <div className="card-info-container text-style">
-                        <h2>{selectedCard.name}</h2>
+                        <h2 className="Heading-bkgrnd-MTG">{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
+                    <div className="txt-bkgrnd-MTG">
                         <p>{selectedCard.oracle_text}</p>
-                        <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
+                        <button className="add-to-button">Add to Collection</button>
+                    </div>
                     </div>
                 )}
             </div>
         </div>
     );
 }
-
+ 
 export default SearchBarMTG;
+ 
