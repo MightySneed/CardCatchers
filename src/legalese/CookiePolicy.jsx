@@ -4,9 +4,9 @@ const CookiePolicy = () => {
     return (
         <div className='cookies'>
             <h1>COOKIE POLICY</h1>
-            <h4>Last updated 11th November 2024</h4>
+            <h4>Last updated 14th November 2024</h4>
             <br />
-            <p>This Cookie Policy explains how TCG Card Catchers ("Company", "we", "us", and "our") uses cookies and similar technologies to recognize you when you visit our site at http:localhost:5173 ("Website"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
+            <p>This Cookie Policy explains how TCG Card Catchers ("Company", "we", "us", and "our") uses cookies and similar technologies to recognize you when you visit our site at https://tcgcc.netlify.app/ ("Website"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
             <p>In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other information.</p>
             <br />
             <h2>What are cookies?</h2>
@@ -55,7 +55,7 @@ const CookiePolicy = () => {
             <br />
             <h2>Where can I get further information?</h2>
             <p>If you have any questions about our use of cookies or other technologies, pleas email us at:</p>
-            <h4>admin@tcgcc.co.uk</h4>
+            <h4>admin@tcgcc.netlify.app</h4>
             <p>or by post to:</p>
             <h4>TCG Card Catchers</h4>
             <h4>28 Paradise Street</h4>
