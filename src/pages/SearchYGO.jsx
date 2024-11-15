@@ -17,19 +17,21 @@ const SearchBarYGO = ({username, setUsername}) => {
         try {
           const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${encodeURIComponent(searchTerm)}&num=15&offset=${(newPage - 1) * 15}`);
             const fetchedCards = response.data.data;
+            fetchedCards.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
             // If loading more, append the new results to the existing cards
-            setCards(prevCards => [...prevCards, ...fetchedCards]);
+            setCards((prevCards) => [...prevCards, ...fetchedCards]);
         } catch (error) {
             console.error("Error fetching data: ", error);
-        } finally {
+        } 
         setLoading(false);
-        }
+        
     };
  
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            fetchData();
-            setPage(1);  // Reset to the first page on new search
+            setPage(1);
+            setCards([])
+            fetchData(1);  // Reset to the first page on new search
         }
     };
  
@@ -50,25 +52,23 @@ const SearchBarYGO = ({username, setUsername}) => {
             if (scrollHeight - scrollTop <= clientHeight + 50 && !loading) {
                 const nextPage = page + 1;
                 setPage(nextPage);
-                fetchData(nextpage);
+                fetchData(nextPage);
             }
         }
     };
 
-    useEffect(() => {
-        if (searchTerm) {
-            const currentContainer = containerRef.current;
-            if (currentContainer) {
-                currentContainer.addEventListener("scroll", handleScroll);
-            }
-            fetchData(page);
-            return () => {
-                if (currentContainer) {
-                    currentContainer.removeEventListener("scroll", handleScroll);
-                }
-            };
-        }
-    }, [page, searchTerm]);
+    useEffect(() => { 
+        if (searchTerm) {}
+        const currentContainer = containerRef.current; 
+        if (currentContainer) { 
+            currentContainer.addEventListener("scroll", handleScroll); 
+    } 
+    return () => {
+        if (currentContainer) {
+            currentContainer.removeEventListener("scroll", handleScroll);
+        }   
+    };
+    }, [loading, page]);
 
     const handleATBClick = () =>{
         console.log('button added')
