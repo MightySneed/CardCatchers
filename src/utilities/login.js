@@ -1,6 +1,5 @@
-import writeCookie from "./writeCookie";
-
-export const login = async (email,username,password) =>  {
+import writeCookie from "./writeCookie"
+export const login = async (email, username, password) => {
     try {
         const res = await fetch(
             "https://cardcatchersbackend-production.up.railway.app/login",
@@ -20,7 +19,7 @@ export const login = async (email,username,password) =>  {
         let token = data.token;
         console.log(data.token);
         writeCookie("jwt_token", token, 2);
-        return res.status
+        return res.status;
     } catch (error) {
         console.log(error);
     }

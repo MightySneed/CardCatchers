@@ -1,26 +1,26 @@
 import { useState } from "react";
 import { login } from "../utilities/login";
 import "../App.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
-const Login = ({ setIsLoggedIn, isLoggedIn, username, setUsername }) => {
+const Login = ({ setIsLoggedIn, setUsername }) => {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize navigate function
+  const [inputUsername, setInputUsername] = useState(''); 
+  const navigate = useNavigate(); 
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const status = await login(email, username, password);
+    const status = await login(email, inputUsername, password); 
     if (status === 200) {
-      await setIsLoggedIn(true);
-      setUsername(username);
-      console.log(username);
-      console.log(isLoggedIn);
+      setIsLoggedIn(true);
+      setUsername(inputUsername); 
+      console.log(inputUsername);
       console.log("Login successful.");
-      navigate("/"); // Redirect to welcome page
+      navigate("/"); 
     } else {
-      await setIsLoggedIn(false);
+      setIsLoggedIn(false);
       console.log("Login failed.");
     }
   };
@@ -29,9 +29,11 @@ const Login = ({ setIsLoggedIn, isLoggedIn, username, setUsername }) => {
         <div>
             <hr />
             <form onSubmit={submitHandler} className="login-form">
+                <h3>Please enter your email or username. Then type in your password to log in.</h3>
+                <br></br>
                 <input className="inputbox-style" onChange={(event)=> setEmail(event.target.value)} placeholder="Email" />
                 <br />
-                <input className="inputbox-style" onChange={(event)=> setUsername(event.target.value)} placeholder="Username" />
+                <input className="inputbox-style" onChange={(event)=> setInputUsername(event.target.value)} placeholder="Username" />
                 <br />
                 <input className="inputbox-style" onChange={(event)=> setPassword(event.target.value)} placeholder="Password" />
                 <br />
@@ -42,4 +44,4 @@ const Login = ({ setIsLoggedIn, isLoggedIn, username, setUsername }) => {
     )
 }
 
-export default Login
+export default Login;

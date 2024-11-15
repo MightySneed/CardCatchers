@@ -54,19 +54,19 @@ useEffect (() => {
         </div>
 
       <Routes>
-        <Route path='/' element={<Welcome />}></Route>
+        <Route path='/' element={<Welcome username={username} setUsername={setUsername} />}></Route>
         <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} username={username} setUsername={setUsername} />}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/search' element={<Search username={username} setUsername={setUsername} />} />
         <Route path='/my-account' element={<MyAccount isLoggedIn={isLoggedIn} />}></Route>
-        <Route path='/my-collections' element={<MyCollections />}></Route>
-        <Route path='/update-details' element={<UpdateDetails />}></Route>
-        <Route path='/terms-and-conditions' element={<TCs />}></Route>
-        <Route path='/privacy-notice' element={<PrivPol />}></Route>
-        <Route path='/all-collections' element={<ViewAllCollections />}></Route>
-        <Route path='cookie-policy' element={<CookiePolicy />}></Route>
-        <Route path='/contact-us' element={<Contact />}></Route>
-        <Route path='/about' element={<About />}></Route>
+        <Route path='/my-collections' element={<MyCollections username={username} setUsername={setUsername} />}></Route>
+        <Route path='/update-details' element={<UpdateDetails username={username} setUsername={setUsername} />}></Route>
+        <Route path='/terms-and-conditions' element={<TCs username={username} setUsername={setUsername} />}></Route>
+        <Route path='/privacy-notice' element={<PrivPol username={username} setUsername={setUsername} />}></Route>
+        <Route path='/all-collections' element={<ViewAllCollections username={username} setUsername={setUsername} />}></Route>
+        <Route path='cookie-policy' element={<CookiePolicy username={username} setUsername={setUsername} />}></Route>
+        <Route path='/contact-us' element={<Contact username={username} setUsername={setUsername} />}></Route>
+        <Route path='/about' element={<About username={username} setUsername={setUsername} />}></Route>
       </Routes>
 
       <footer id='footer'>
