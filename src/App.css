@@ -418,7 +418,7 @@ font-family: 'Press Start 2P';
     background-color: transparent; 
     border: 1px solid rgb(17, 0, 114);; 
     border-radius: 4px; 
-    scrollbar-width: none;
+    scrollbar-width: 1%;
 }
 
 /* My Account styles */
@@ -501,7 +501,8 @@ font-family: 'Press Start 2P';
     background-color: rgb(214, 0, 0);
     scale: 1.1;
 }
- 
+
+
 .bttn-container {
     display: flex;
     gap: 10px;      

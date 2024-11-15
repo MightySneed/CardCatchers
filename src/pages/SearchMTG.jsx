@@ -26,7 +26,7 @@ const SearchBarMTG = ({username}) => {
  
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            setPage(1);
+            fetchData(1);
             setCards([])
             fetchData(1);   // Reset to the first page on new search
         }
@@ -42,7 +42,7 @@ const SearchBarMTG = ({username}) => {
         setSelectedCard(card);
         setClicked(true);
     };
-
+//scroll func
     const handleScroll = () => {
         if (containerRef.current) {
             const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
@@ -54,18 +54,19 @@ const SearchBarMTG = ({username}) => {
         }
     };
 
-    useEffect(() => { 
-        if (searchTerm) {}
-        const currentContainer = containerRef.current; 
-        if (currentContainer) { 
-            currentContainer.addEventListener("scroll", handleScroll); 
-    } 
-    return () => {
-        if (currentContainer) {
-            currentContainer.removeEventListener("scroll", handleScroll);
-        }   
-    };
-    }, [loading, page]);
+    useEffect(() => {
+        if (searchTerm) {
+            const currentContainer = containerRef.current;
+            if (currentContainer) {
+                currentContainer.addEventListener("scroll", handleScroll);
+            }
+            return () => {
+                if (currentContainer) {
+                    currentContainer.removeEventListener("scroll", handleScroll);
+                }
+            };
+        }
+    }, [page, searchTerm]);
 
     const handleATBClick = () =>{
         console.log('button added')
