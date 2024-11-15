@@ -418,7 +418,7 @@ font-family: 'Press Start 2P';
     background-color: transparent; 
     border: 1px solid rgb(17, 0, 114);; 
     border-radius: 4px; 
-    scrollbar-width: 1%;
+    scrollbar-width: none;
 }
 
 /* My Account styles */
