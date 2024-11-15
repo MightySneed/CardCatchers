@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import { addToCollectionMTG } from '../utilities/addCollectionMTG';
  
@@ -9,12 +9,14 @@ const SearchBarMTG = ({username}) => {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
+    const containerRef = useRef(null);
 
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
-            const response = await axios.get(`https://api.scryfall.com/cards/search?q=${encodeURIComponent(searchTerm)}&order=relevance,name&dir=asc&page=${newPage}`);
+            const response = await axios.get(`https://api.scryfall.com/cards/search?q=${encodeURIComponent(searchTerm)}&order=relevance&unique,name&dir=asc&page=${newPage}`);
             const fetchedCards = response.data.data;
+            fetchedCards.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
             setCards(prevCards => newPage === 1 ? fetchedCards.slice(0, 15) : [...prevCards, ...fetchedCards.slice(0, 15)]);
         } catch (error) {
             console.error("Error fetching data: ", error);
@@ -24,8 +26,9 @@ const SearchBarMTG = ({username}) => {
  
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            fetchData();
-            setPage(1);  // Reset to the first page on new search
+            fetchData(1);
+            setCards([])
+            fetchData(1);   // Reset to the first page on new search
         }
     };
 
@@ -39,12 +42,31 @@ const SearchBarMTG = ({username}) => {
         setSelectedCard(card);
         setClicked(true);
     };
-
-    const loadMoreResults = () => {
-        const nextPage = page + 1;
-        setPage(nextPage);
-        fetchData(nextPage);
+//scroll func
+    const handleScroll = () => {
+        if (containerRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+            if (scrollHeight - scrollTop <= clientHeight + 50 && !loading) {
+                const nextPage = page + 1;
+                setPage(nextPage);
+                fetchData(nextPage);
+            }
+        }
     };
+
+    useEffect(() => {
+        if (searchTerm) {
+            const currentContainer = containerRef.current;
+            if (currentContainer) {
+                currentContainer.addEventListener("scroll", handleScroll);
+            }
+            return () => {
+                if (currentContainer) {
+                    currentContainer.removeEventListener("scroll", handleScroll);
+                }
+            };
+        }
+    }, [page, searchTerm]);
 
     const handleATBClick = () =>{
         console.log('button added')
@@ -53,7 +75,7 @@ const SearchBarMTG = ({username}) => {
  
     return (
         <div className="search-container MTG-bkgrnd">
-            <div className="search-left">
+            <div className="search-left scrollable-list" ref={containerRef}>
                 <input className="search-bar-style"
                     type="text"
                     placeholder="I'm looking for..."
@@ -83,9 +105,6 @@ const SearchBarMTG = ({username}) => {
                         </p>
                     ))}
                     </div>
-                {cards.length > 0 && (
-                    <button className="load-more-bttn" onClick={loadMoreResults}>Load More</button>
-                )}
             </>
                 )}
             </div>
