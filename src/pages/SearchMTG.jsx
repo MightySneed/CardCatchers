@@ -10,7 +10,7 @@ const SearchBarMTG = ({username}) => {
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
     const containerRef = useRef(null);
- 
+
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
@@ -53,7 +53,7 @@ const SearchBarMTG = ({username}) => {
             }
         }
     };
- 
+
     useEffect(() => {
         if (searchTerm) {
             const currentContainer = containerRef.current;
@@ -67,7 +67,7 @@ const SearchBarMTG = ({username}) => {
             };
         }
     }, [page, searchTerm]);
- 
+
     const handleATBClick = () =>{
         console.log('button added')
         addToCollectionMTG(username, selectedCard.scryfall_uri, selectedCard.name)
@@ -110,10 +110,10 @@ const SearchBarMTG = ({username}) => {
             </div>
             <div className="search-right">
                 {selectedCard && (
-                    <div className="card-info-container">
-                        <h2 className="Heading-bkgrnd-MTG">{selectedCard.name}</h2>
+                    <div className="card-info-container-MTG MTG-txt">
+                        <h2>{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.image_uris?.large} alt={selectedCard.name} />
-                    <div className="txt-bkgrnd-MTG">
+                    <div>
                         <p>{selectedCard.oracle_text}</p>
                         <button className="add-to-button">Add to Collection</button>
                     </div>

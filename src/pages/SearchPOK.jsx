@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { addToCollectionPOK } from '../utilities/addCollectionPOK';
 import "../App.css"
- 
+
 const SearchBarPOK = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -45,7 +45,7 @@ const SearchBarPOK = ({username, setUsername}) => {
         setSelectedCard(card);
         setClicked(true);
     };
- 
+
     const handleScroll = () => {
         if (containerRef.current) {
             const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
@@ -56,7 +56,7 @@ const SearchBarPOK = ({username, setUsername}) => {
             }
         }
     };
- 
+
     useEffect(() => {
         if (searchTerm) {
             const currentContainer = containerRef.current;
@@ -70,7 +70,7 @@ const SearchBarPOK = ({username, setUsername}) => {
             };
         }
     }, [page, searchTerm]);
- 
+
     const handleATBClick = () =>{
         console.log('button added')
         addToCollectionPOK(username, selectedCard.id, selectedCard.name)
@@ -112,11 +112,10 @@ const SearchBarPOK = ({username, setUsername}) => {
             </div>
             <div className="search-right">
                 {selectedCard && (
-                    <div className="card-info-container ">
-                        <h2 className="Heading-bkgrnd-POK">{selectedCard.name}</h2>
+                    <div className="card-info-container-POK POK-txt">
+                        <h2>{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.images.large} alt={selectedCard.name} />
-                        <div className="txt-bkgrnd-POK">
- 
+                        <div>
                         <p>Type: {selectedCard.types?.join(', ')}</p>
                         <p>Set: {selectedCard.set.name}</p>
                         <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
