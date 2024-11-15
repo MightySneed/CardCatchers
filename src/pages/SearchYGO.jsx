@@ -113,10 +113,10 @@ const SearchBarYGO = ({username, setUsername}) => {
             </div>
             <div className="search-right">
                 {selectedCard && (
-                     <div className="card-info-container">
-                        <h2 className="Heading-bkgrnd-YGO">{selectedCard.name}</h2>
+                     <div className="card-info-container-YGO YGO-txt">
+                        <h2>{selectedCard.name}</h2>
                         <img  className="card-styling" src={selectedCard.card_images[0].image_url} alt={selectedCard.name} />
-                    <div className="txt-bkgrnd-YGO">
+                    <div>
 
                         <p><strong>Type:</strong> {selectedCard.type}</p>
                         <p><strong>Description:</strong> {selectedCard.desc}</p>
