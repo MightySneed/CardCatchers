@@ -37,12 +37,13 @@ const Collection = ({ username }) => {
       <Game selectedGame={selectedGame} setGameSelect={setGameSelect}/> 
       <form onSubmit={handleCreateCollection}>
         <input
+          className="c-search-bar-style"
           type="text"
           placeholder="Collection Name"
           value={colName}
           onChange={(e) => setColName(e.target.value)}
         />
-        <button type="submit">Create Collection</button>
+        <button className="create-bttn" type="submit">Create Collection</button>
       </form>
     </div>
   );
