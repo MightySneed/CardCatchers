@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { addToCollectionPOK } from '../utilities/addCollectionPOK';
-
+import "../App.css"
+ 
 const SearchBarPOK = ({username, setUsername}) => {
     const [cards, setCards] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -9,24 +10,28 @@ const SearchBarPOK = ({username, setUsername}) => {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [ clicked, setClicked] = useState(false);
+    const containerRef = useRef(null);
  
     const fetchData = async (newPage = 1) => {
         setLoading(true);
         try {
             const response = await axios.get(`https://api.pokemontcg.io/v2/cards?q=name:${encodeURIComponent(searchTerm)}*&order=relevance,name&dir=asc&pageSize=15&page=${newPage}`);
             const fetchedCards = response.data.data;
+            fetchedCards.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 //Appends the data  Adds another 15.
-            setCards(prevCards => newPage === 1 ? fetchedCards : [...prevCards, ...fetchedCards]);
+            setCards(prevCards => [...prevCards, ...fetchedCards]);
         } catch (error) {
             console.error("Error fetching data: ", error);
-        }
+        } finally {
         setLoading(false);
+        }
     };
  
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            fetchData();
-            setPage(1);  // Reset to the first page on new search
+            fetchData(1);
+            setCards([])
+            fetchData(1);  // Reset to the first page on new search
         }
     };
  
@@ -41,18 +46,38 @@ const SearchBarPOK = ({username, setUsername}) => {
         setClicked(true);
     };
  
-    const loadMoreResults = () => {
-        const nextPage = page + 1;
-        setPage(nextPage);
-        fetchData(nextPage);
+    const handleScroll = () => {
+        if (containerRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+            if (scrollHeight - scrollTop <= clientHeight + 50 && !loading) {
+                const nextPage = page + 1;
+                setPage(nextPage);
+                fetchData(nextPage);
+            }
+        }
     };
+ 
+    useEffect(() => {
+        if (searchTerm) {
+            const currentContainer = containerRef.current;
+            if (currentContainer) {
+                currentContainer.addEventListener("scroll", handleScroll);
+            }
+            return () => {
+                if (currentContainer) {
+                    currentContainer.removeEventListener("scroll", handleScroll);
+                }
+            };
+        }
+    }, [page, searchTerm]);
+ 
     const handleATBClick = () =>{
         console.log('button added')
         addToCollectionPOK(username, selectedCard.id, selectedCard.name)
       }
     return (
         <div className="search-container POK-bkgrnd">
-        <div className="search-left">
+        <div className="search-left scrollable-list" ref={containerRef}>
           <input className="search-bar-style"
                     type="text"
                     placeholder="I'm looking for..."
@@ -70,9 +95,9 @@ const SearchBarPOK = ({username, setUsername}) => {
 <>
 <div className="search-results">
                     {cards.map(card => (
-<p 
+<p
                             key={card.id}
-                            className="search-result-item-POK" 
+                            className="search-result-item-POK"
                             //Locks display to clicked card
                             onClick={() => {handleCardClick(card), console.log(selectedCard)}}
                             onMouseEnter={() => handleMouseEnter(card)} //Only updates on hover if no card has been clicked
@@ -81,9 +106,6 @@ const SearchBarPOK = ({username, setUsername}) => {
                             {card.name}
                         </p>
                     ))}
-                {cards.length > 0 && (
-                    <button className="load-more-bttn" onClick={loadMoreResults}>Load More</button>
-                )}
                 </div>
             </>
                 )}
@@ -94,7 +116,7 @@ const SearchBarPOK = ({username, setUsername}) => {
                         <h2 className="Heading-bkgrnd-POK">{selectedCard.name}</h2>
                         <img className="card-styling" src={selectedCard.images.large} alt={selectedCard.name} />
                         <div className="txt-bkgrnd-POK">
-
+ 
                         <p>Type: {selectedCard.types?.join(', ')}</p>
                         <p>Set: {selectedCard.set.name}</p>
                         <button className="add-to-button" onClick={handleATBClick}>Add to Collection</button>
@@ -107,4 +129,3 @@ const SearchBarPOK = ({username, setUsername}) => {
 }
  
 export default SearchBarPOK;
- 

@@ -66,35 +66,39 @@ footer {
     border-radius: 8px;
     border-width: 1px;
 }
-
+ 
 /* SearchYGO,POK,MTG styling */
 .YGO-bkgrnd {
     background-image: url("./assets/YGO-Background.jpg");
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the content inside the YGO background */
+    position: relative; /* Ensures positioning of child elements inside this container */
 }
-
+ 
 .POK-bkgrnd {
     background-image: url("./assets/POK-Background.jpg");
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
 }
-
+ 
 .MTG-bkgrnd {
     background-image: url("./assets/MTG-Background.jpg");
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
 }
-
+ 
 /* login and register form styling */
 .register-form, .login-form {
     display: flex;
@@ -161,15 +165,15 @@ footer {
     color: rgb(255, 255, 255);
     font-weight: bold;
 }
-
+ 
 .txt-bkgrnd-YGO{
     border-radius: 10px;
     background-color: rgb(17, 0, 114);
     padding: 2%;
     font-family: 'Cinzel';
 }
-
-
+ 
+ 
 .txt-bkgrnd-POK{
     border-radius: 10px;
     background-color: rgb(208, 255, 0);
@@ -177,21 +181,21 @@ footer {
     padding: 2%;
     font-family: 'Press Start 2P';
 }
-
+ 
 .txt-bkgrnd-MTG {
     border-radius: 10px;
     background-color: rgb(12, 85, 22);
     padding: 2%;
     font-family: 'Beleren Bold'
 }
-
+ 
 .Heading-bkgrnd-YGO {
     border-radius: 10px;
     background-color: rgb(17, 0, 114);
     padding: 2%;
     font-family: 'Cinzel';
 }
-
+ 
 .Heading-bkgrnd-POK{
     border-radius: 10px;
     background-color: rgb(208, 255, 0);
@@ -199,7 +203,7 @@ footer {
     padding: 2%;
     font-family: 'Press Start 2P';
 }
-
+ 
 .Heading-bkgrnd-MTG {
     border-radius: 10px;
     background-color: rgb(12, 85, 22);
@@ -210,15 +214,15 @@ footer {
 .drop-down-styles {
     border-radius: 5px;
 }
-
+ 
 .YGO-txt {
 font-family: 'Cinzel';
 }
-
+ 
 .MTG-txt {
 font-family: 'Beleren Bold'
 }
-
+ 
 .POK-txt {
 font-family: 'Press Start 2P';
 }
@@ -227,12 +231,12 @@ font-family: 'Press Start 2P';
 .main-txt {
     font-family: 'Libre Baskerville';
 }
-
+ 
 .image-float-container {
-    display: flex; 
+    display: flex;
     justify-content: center;
-    align-items: center; 
-
+    align-items: center;
+ 
     gap: 20px;
     height: 100vh;
 }
@@ -245,7 +249,7 @@ font-family: 'Press Start 2P';
     filter: grayscale(100%);
     cursor: pointer;
 }
-
+ 
 .mainImg:hover {
     filter: grayscale(0%);
     transform: scale(1.1);
@@ -261,7 +265,7 @@ font-family: 'Press Start 2P';
     display: table;
     clear: both;
 }
-
+ 
 .image-container {
     display: inline-block;
     pointer-events: none;
@@ -336,7 +340,7 @@ font-family: 'Press Start 2P';
     flex-wrap: wrap;
     gap: 10px;
 }
-
+ 
 .search-result-item-YGO {
     cursor: pointer;
     border-radius: 4px;
@@ -348,12 +352,12 @@ font-family: 'Press Start 2P';
     color: white;
     font-family: 'Cinzel';
 }
-
+ 
 .search-result-item-YGO:hover {
     scale: 1.02 ;
     background-color: rgb(11, 0, 77);
 }
-
+ 
 .search-result-item-POK {
     cursor: pointer;
     border-radius: 4px;
@@ -364,14 +368,14 @@ font-family: 'Press Start 2P';
     font-weight: bold;
     color: black;
     font-family: 'Press Start 2P';
-
+ 
 }
-
+ 
 .search-result-item-POK:hover {
     scale: 1.02 ;
     background-color: rgb(147, 180, 0);
 }
-
+ 
 .search-result-item-MTG {
     cursor: pointer;
     border-radius: 4px;
@@ -383,12 +387,12 @@ font-family: 'Press Start 2P';
     color: white;
     font-family: 'Beleren Bold'
 }
-
+ 
 .search-result-item-MTG:hover {
     scale: 1.02 ;
     background-color: rgb(7, 48, 12);
 }
-
+ 
 .load-more-bttn {
     padding: 8px 16px;
     background-color: rgb(0, 185, 31);
@@ -405,6 +409,17 @@ font-family: 'Press Start 2P';
     scale: 1.1;
 }
  
+.scrollable-list {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: transparent;
+    border: 1px solid rgb(17, 0, 114);;
+    border-radius: 4px;
+    scrollbar-width: none;
+}
  
 /* My Account styles */
 .collections-bttn {
@@ -486,6 +501,7 @@ font-family: 'Press Start 2P';
     background-color: rgb(214, 0, 0);
     scale: 1.1;
 }
+ 
  
 .bttn-container {
     display: flex;
