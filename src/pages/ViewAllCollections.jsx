@@ -1,85 +1,120 @@
 import React, { useState, useEffect } from 'react';
 import readCookie from '../utilities/readCookie';
-import App from '../App';
-
+import '../App.css';
+import ViewAllCards from './listCardsInDeck';
+ 
 const ViewAllCollections = () => {
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [collections, setcollections] = useState([]);
+    const [cardsVisible, setCardsVisible] = useState(false);
+ 
     useEffect(() => {
-        const fetchCards = async () => {
+        const fetchCollections = async () => {
             try {
                 const token = readCookie('jwt_token')
                 console.log(token)
                 const auth = 'Bearer ' + token
                 const res = await fetch(
-                    "https://cardcatchersbackend-production.up.railway.app/listAllCards",
+                    "https://cardcatchersbackend-production.up.railway.app/listCols",
                     {
                         method: "GET",
-                        headers: {"Content-Type":"application/json", 
+                        headers: {"Content-Type":"application/json",
                             "Authorization": auth
                         }
                     }
                 )
                 const data = await res.json();
-                setCards(data);
+                setcollections(data);
                 console.log(data);
-                console.log(cards);
+                console.log(collections);
             } catch (err) {
                 setError(err.message);
             }
             setLoading(false);
         };
-
-        fetchCards();
+ 
+        fetchCollections();
     }, []);
 
+    const groupedCollections = collections.reduce((acc, collection) => {
+        const { colGame } = collection;
+        if (!acc[colGame]) {
+          acc[colGame] = [];
+        }
+        acc[colGame].push(collection);
+        return acc;
+      }, {});
+
+      const handleDeleteCollection = async (colID) => {
+        const token = readCookie('jwt_token')
+        console.log(token)
+        const auth = 'Bearer ' + token
+        const response = await fetch (`https://cardcatchersbackend-production.up.railway.app/deleteCol`,
+            { method: 'DELETE',
+                headers: {"Content-Type":"application/json",
+                    "Authorization": auth,
+                },
+                body : JSON.stringify({
+                    colID : colID
+                })
+
+            });
+            if (response.ok) {
+                setcollections((prevCollections) => prevCollections.filter((collection) => collection.colID !== colID));
+                console.log('Collection deleted successfully'); }
+                else { console.log('Error deleting collection'); }
+            };
+ 
     if (loading) {
         return <div>Loading...</div>;
     }
-
+ 
     if (error) {
         return <div>Error: {error}</div>;
     }
-
+ 
     return (
         <div>
-            <h1 className="main-txt">All Collections</h1>
-            <h2 className="YGO-txt">Yu-Gi-Oh!</h2>
-            <ul>
-                <li><h4 className="YGO-txt">YGO 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-                <li><h4 className="YGO-txt">YGO 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-            </ul>
-            <h2 className="POK-txt">Pokemon</h2>
-            <ul>
-                <li><h4 className="POK-txt">PKMN 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-                <li><h4 className="POK-txt">PKMN 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-            </ul>
-            <h2 className="MTG-txt">Magic The Gathering</h2>
-            <ul>
-                <li><h4 className="MTG-txt">MTG 1</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-                <li><h4 className="MTG-txt">MTG 2</h4><button className="del-acc-bttn">Delete</button><button className="collections-bttn">View</button></li>
-            </ul>
-        
-        <div>
-        <h2 className="main-txt">Your Stored Cards</h2>
-        <div>
-            {cards.map((card) => {
-                const fontClass =
-                card.game === "MTG" ? "MTG-txt" :
-                card.game === "POK" ? "POK-txt" :
-                card.game === "YGO" ? "YGO-txt" :
-                "main-txt";
-                return (
-                <div key={card.id} className="card-item">
-                    <h3 className={fontClass}>{card.name}</h3>
-                    <a className="main-txt" href={card.url} target="_blank" rel="noopener noreferrer">View Card</a>
-                </div>)
-})}
+          <h1 className="main-txt">All Collections</h1>
+          <div>
+            {Object.keys(groupedCollections).map((game) => {
+              const GameTag =
+                game === "MTG" ? "Magic The Gathering" :
+                game === "POK" ? "Pokémon" :
+                game === "YGO" ? "Yu-Gi-Oh!" :
+                "Unknown Game";
+    
+              return (
+                <div key={game} className="game-group">
+                  <h2>{GameTag}</h2>
+                  {groupedCollections[game].map((collection) => {
+                    const fontClass =
+                      collection.colGame === "MTG" ? "MTG-txt" :
+                      collection.colGame === "POK" ? "POK-txt" :
+                      collection.colGame === "YGO" ? "YGO-txt" :
+                      "main-txt";
+                    return (
+                      <div key={collection.colID} className="card-item">
+                        <h3 className={fontClass}>{collection.colName}</h3>
+                        <button className='del-acc-bttn' onClick={() => handleDeleteCollection(collection.colID)}>Delete Collection</button> 
+                        <button className='view-collections-bttn' onClick={()=> setCardsVisible(true)}>View Cards</button>
+                        {cardsVisible && <ViewAllCards></ViewAllCards>}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
         </div>
-    </div>
-    </div>
-    )
-}
+      );
+    };
 export default ViewAllCollections
+
+
+
+
+
+

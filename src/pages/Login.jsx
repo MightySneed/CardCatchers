@@ -29,7 +29,7 @@ const Login = ({ setIsLoggedIn, setUsername }) => {
         <div>
             <hr />
             <form onSubmit={submitHandler} className="login-form">
-                <h3>Please enter your email or username. Then type in you password to log in.</h3>
+                <h3>Please enter your email or username. Then type in your password to log in.</h3>
                 <br></br>
                 <input className="inputbox-style" onChange={(event)=> setEmail(event.target.value)} placeholder="Email" />
                 <br />
